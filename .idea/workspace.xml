@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/SubLobby.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Projectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/TODO list" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/TODO list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Test2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Test2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Test2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/test5$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/test5$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/test5$Sprite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/test5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +30,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1idpEcF8xlsDiH3EO1PIDGjjMK9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
-  <component name="RunManager" selected="Application.Lobby">
+  <component name="RunManager" selected="Application.ClientTest">
+    <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientTest" />
+      <module name="Gruppe-306-PCSS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Lobby" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lobby" />
       <module name="Gruppe-306-PCSS" />
@@ -71,29 +79,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.test5" />
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Lobby" />
+      <item itemvalue="Application.ClientTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientTest" />
         <item itemvalue="Application.Lobby" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -136,30 +135,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1602502863500" />
-    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1602503809569">
+    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1603370749388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602503809569" />
-    <state width="1493" height="228" key="GridCell.Tab.0.bottom" timestamp="1603177211376">
+    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603370749388" />
+    <state width="1478" height="208" key="GridCell.Tab.0.bottom" timestamp="1603372723453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1493" height="228" key="GridCell.Tab.0.center" timestamp="1603177211376">
+    <state width="1478" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603372723453" />
+    <state width="1478" height="208" key="GridCell.Tab.0.center" timestamp="1603372723453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1493" height="228" key="GridCell.Tab.0.left" timestamp="1603177211376">
+    <state width="1478" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603372723453" />
+    <state width="1478" height="208" key="GridCell.Tab.0.left" timestamp="1603372723452">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1493" height="228" key="GridCell.Tab.0.right" timestamp="1603177211376">
+    <state width="1478" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603372723452" />
+    <state width="1478" height="208" key="GridCell.Tab.0.right" timestamp="1603372723453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1602504632882">
+    <state width="1478" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603372723453" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1603370759731">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602504632882" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603370759731" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603104575171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

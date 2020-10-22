@@ -5,7 +5,7 @@ DONE> efter ramt tank
 Lav colission
 > tank --> væg
 > tank --> tank
-> bullet --> tank
+DONE> bullet --> tank
 
 Map
 
@@ -21,3 +21,5 @@ Liste vi skal bruge fra serveren
 > array med tanks
 > tank ID
 
+PlayerID
+> synkronisering mellem classes
