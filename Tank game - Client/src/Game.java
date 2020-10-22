@@ -6,6 +6,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,10 @@ import java.util.List;
 public class Game extends Application {
 
     Projectile[] projectiles;
+
+    DataInputStream input = ClientTest.getInput();
+    DataOutputStream output = ClientTest.getOutput();
+
 
     //movement booleans
     boolean left = false;
@@ -30,6 +37,8 @@ public class Game extends Application {
     int wallWidth = 10;
 
     String playerID;
+
+    //ClientTest data = new ClientTest(playerID);
 
     private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
@@ -69,6 +78,17 @@ public class Game extends Application {
     }
 
     public void update() {//function where everything that happens every frame is called
+
+        /*
+        try {
+            output.writeInt((int)player.getTranslateX());
+            output.flush();
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+         */
+
+        //System.out.println(player.getTranslateX());
         //moves ALL bullets on the map
         for (int i = 0; i < projectiles.length; i++) {
             if (projectiles[i] != null) { //only does this function if there are bullets in the array
@@ -92,6 +112,8 @@ public class Game extends Application {
                 }
             }
         }
+
+
 
         //checks the lifespan and removes bullet if it is over a threshold
         int threshold = 3000; //threshold - the bullets are removed after 300 frames
@@ -175,6 +197,7 @@ public class Game extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }

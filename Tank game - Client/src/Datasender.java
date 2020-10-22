@@ -7,6 +7,7 @@ public class Datasender {
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
     int port = 8000;
+
     // ipv4 address for server
     String host = "192.168.43.236";
     boolean Continue = true;
@@ -15,6 +16,7 @@ public class Datasender {
 
     Datasender(String playerID) {
         try {
+            System.out.println("wait");
             socket = new Socket(host, port);
             System.out.println("Connection to server established ");
             toServer = new DataOutputStream(socket.getOutputStream());
@@ -26,16 +28,14 @@ public class Datasender {
     }
 
 
-    public void setID(String playerID){
+    public void setID(String playerID) {
         this.playerID = playerID;
     }
 
-    void gameUpdate(){
-
+    void gameUpdate() {
     }
 
-    void sendXpos(){
-
+    void sendXpos() {
     }
 
 }
