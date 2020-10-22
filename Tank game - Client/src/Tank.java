@@ -88,4 +88,7 @@ public class Tank extends Rectangle {
     public int getAngle() {
         return angle;
     }
+    public double getTankX(){
+        return this.getTranslateX();
+    }
 }

@@ -48,9 +48,8 @@ public static DataInputStream input;
 
                         if (message.equalsIgnoreCase("ready")) {
                             String[] arguments = new String[]{};
-                            Lobby.main(arguments);
-
-                            connect = false;
+                            Game.main(arguments);
+                            //connect = false;
 
                         }
 
@@ -68,8 +67,6 @@ public static DataInputStream input;
                     try {
                         String message = input.readUTF();
                         System.out.println(message);
-
-
                         if (message.equalsIgnoreCase("Game started")) {
                             connect = false;
                         }

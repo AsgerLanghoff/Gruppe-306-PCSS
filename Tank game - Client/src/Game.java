@@ -78,15 +78,16 @@ public class Game extends Application {
     }
 
     public void update() {//function where everything that happens every frame is called
+        int x = (int)player.getTranslateX();
 
-        /*
         try {
-            output.writeInt((int)player.getTranslateX());
+            output.writeInt(x);
+            System.out.println(x);
             output.flush();
         }catch(IOException e) {
             e.printStackTrace();
         }
-         */
+
 
         //System.out.println(player.getTranslateX());
         //moves ALL bullets on the map
@@ -142,10 +143,11 @@ public class Game extends Application {
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
         projectiles = player.getProjectiles(); //initializes the projectile array
-        Parameters para = getParameters();
-        List<String> list = para.getRaw();
-        playerID = list.get(0);
-        System.out.println(list.get(0));
+        //Parameters para = getParameters();
+        //List<String> list = para.getRaw();
+        playerID = "signe";
+        //playerID = list.get(0);
+        //System.out.println(list.get(0));
 
 
         //sets booleans to false if key is released
