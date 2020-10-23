@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.DataInputStream;
@@ -57,8 +58,8 @@ public class Game extends Application {
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
         root.setPrefSize(width, height); //sets width and height of window
 
-        for(int i = 0; i< tanks.length; i++){ //makes the tanks
-            if(tanks[i] != null) {
+        for (int i = 0; i < tanks.length; i++) { //makes the tanks
+            if (tanks[i] != null) {
                 root.getChildren().add(tanks[i]);
             }
         }
@@ -67,27 +68,62 @@ public class Game extends Application {
             root.getChildren().add(maps[i]);
         }
 
+
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
+            private long lastUpdate = 0;
             @Override
             public void handle(long now) {
-                update();
+                if(now-lastUpdate>=28_000_000){
+                    update();
+                    lastUpdate = now;
+
+                }
+
             }
         };
         timer.start(); //starts the animationtimer
         return root; //returns the root
     }
 
-    public void update() {//function where everything that happens every frame is called
-        int x = (int)player.getTranslateX();
 
-        try {
-            output.writeInt(x);
-            System.out.println(x);
-            output.flush();
-        }catch(IOException e) {
+
+    public void update() {//function where everything that happens every frame is called
+        int x = (int) player.getTranslateX();
+        int y = (int) player.getTranslateY();
+
+        //if(output != null) {
+            try {
+                output.writeInt(x);
+                //System.out.println(x);
+                output.flush();
+                int xpos = input.readInt();
+                System.out.println(xpos);
+                player2.setTranslateX(xpos);
+                //player2.setTranslateY();
+                //player2.getTransforms().add(new Rotate(+angle, player2.getCenterX(), player2.getCenterY());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        //}
+
+        try{
+
+        }catch(Exception e){
             e.printStackTrace();
         }
 
+
+
+
+
+        /*try {
+            int xpos = input.readInt();
+            System.out.println(xpos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+         */
 
         //System.out.println(player.getTranslateX());
         //moves ALL bullets on the map
@@ -113,7 +149,6 @@ public class Game extends Application {
                 }
             }
         }
-
 
 
         //checks the lifespan and removes bullet if it is over a threshold
@@ -195,7 +230,6 @@ public class Game extends Application {
         stage.setScene(scene);//creates a stage using the scene that uses the root
         stage.show();
     }
-
 
 
     public static void main(String[] args) {

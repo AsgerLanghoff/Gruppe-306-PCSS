@@ -49,6 +49,7 @@ public static DataInputStream input;
                         if (message.equalsIgnoreCase("ready")) {
                             String[] arguments = new String[]{};
                             Game.main(arguments);
+
                             //connect = false;
 
                         }
