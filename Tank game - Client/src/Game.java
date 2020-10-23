@@ -74,6 +74,13 @@ public class Game extends Application {
 
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
             private long lastUpdate = 0;
+
+            @Override
+            public void handle(long now) {
+                if (now-lastUpdate>=28_000_000){
+                    update();
+                    lastUpdate = now;
+                }
             @Override
             public void handle(long now) {
                 if(now-lastUpdate>=28_000_000){
