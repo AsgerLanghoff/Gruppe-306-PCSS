@@ -6,12 +6,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Game extends Application {
+    InputStream input = ClientTest.getInput();
+    OutputStream output = ClientTest.getOutput();
+
 
     Projectile[] projectiles;
 
@@ -49,13 +54,11 @@ public class Game extends Application {
     Map[] maps = {top, bund, venstre, hoejre, map1};
 
 
-
-
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
         root.setPrefSize(width, height); //sets width and height of window
 
-        for(int i = 0; i< tanks.length; i++){ //makes the tanks
-            if(tanks[i] != null) {
+        for (int i = 0; i < tanks.length; i++) { //makes the tanks
+            if (tanks[i] != null) {
                 root.getChildren().add(tanks[i]);
             }
         }
@@ -75,6 +78,14 @@ public class Game extends Application {
     }
 
     public void update() {//function where everything that happens every frame is called
+        int x = (int) player.getTranslateX();
+        try {
+            output.write(x);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         //moves ALL bullets on the map
         for (int i = 0; i < projectiles.length; i++) {
             if (projectiles[i] != null) { //only does this function if there are bullets in the array
@@ -110,27 +121,27 @@ public class Game extends Application {
 
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
             player.rotateLeft();
-            if (player.isColliding(maps)){
+            if (player.isColliding(maps)) {
                 player.rotateRight();
 
             }
         }
         if (right) {
             player.rotateRight();
-            if (player.isColliding(maps)){
+            if (player.isColliding(maps)) {
                 player.rotateLeft();
             }
         }
         if (forward) {
             player.moveForward();
-            if (player.isColliding(maps)){
+            if (player.isColliding(maps)) {
                 player.moveBackward();
 
             }
         }
         if (backward) {
             player.moveBackward();
-            if (player.isColliding(maps)){
+            if (player.isColliding(maps)) {
                 player.moveForward();
 
             }
@@ -192,7 +203,6 @@ public class Game extends Application {
         stage.setScene(scene);//creates a stage using the scene that uses the root
         stage.show();
     }
-
 
 
     public static void main(String[] args) {
