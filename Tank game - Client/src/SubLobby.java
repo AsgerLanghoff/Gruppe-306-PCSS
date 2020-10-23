@@ -30,7 +30,7 @@ public class SubLobby {
 
     public void printPlayers(){
         for (int i = 0; i < players.size(); i++) {
-            System.out.println(players.get(i));
+            System.out.println(" - "+players.get(i));
         }
     }
 
