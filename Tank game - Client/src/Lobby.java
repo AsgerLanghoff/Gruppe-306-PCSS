@@ -52,12 +52,6 @@ public class Lobby {
 
 
 
-    void startGame(String lobby) {
-        //Game game = new Game(playerID);
-        String[] arguments = new String[]{playerID};
-        Game.main(arguments);
-
-
     void startGame(String lobbyName) {
         System.out.println("Game started");
         //start the game

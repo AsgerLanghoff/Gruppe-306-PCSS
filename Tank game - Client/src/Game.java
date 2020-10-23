@@ -27,24 +27,41 @@ public class Game extends Application {
     int width = 1200;
     int height = 700;
 
-    int wallWidth = 10;
+    int wallWidth = 20;
+    int tankSizeWidth = 60;     //Width
+    int tankSizeLength = 45;    //Length (or height)
 
     String playerID;
 
-    private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
-    private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
+    private Tank player = new Tank(180-(tankSizeWidth/2), 160-(tankSizeLength/2), tankSizeWidth, tankSizeLength, playerID, Color.BLUE);
+    private Tank player2 = new Tank(width-(180-(tankSizeWidth/2)), height-(160-(tankSizeLength/2)), tankSizeWidth, tankSizeLength, "2", Color.RED);
     Tank[] tanks = {player, player2};//puts the tanks into an array
     //private List<SubLobby> tank = new ArrayList<SubLobby>();
 
 
     //map
-    private Map top = new Map(0, 0, 1200, wallWidth);
-    private Map bund = new Map(0, height - wallWidth, 1200, wallWidth);
-    private Map hoejre = new Map(width - wallWidth, 0, wallWidth, height);
-    private Map venstre = new Map(0, 0, wallWidth, height);
-    private Map map1 = new Map(200, 100, width / 2, wallWidth);
-    Map[] maps = {top, bund, venstre, hoejre, map1};
+    private Map map_top = new Map(0, 0, 1200, wallWidth);
+    private Map map_bot = new Map(0, height - wallWidth, 1200, wallWidth);
+    private Map map_right = new Map(width - wallWidth, 0, wallWidth, height);
+    private Map map_left = new Map(0, 0, wallWidth, height);
 
+
+
+    private Map wall01 = new Map(360, 160, wallWidth, 160);
+    private Map wall02 = new Map(160, 300,200, wallWidth);
+    private Map wall03 = new Map(160,300,wallWidth,220);
+    private Map wall04 = new Map(360,520,wallWidth,160);
+    private Map wall05 = new Map(360,520,240,wallWidth);
+    private Map wall06 = new Map(600,160,240,wallWidth);
+    private Map wall07 = new Map(820,20,wallWidth,160);
+
+
+    private Map wall08 = new Map(820,380,220,wallWidth);
+    private Map wall09 = new Map(820,380,wallWidth,160);
+    private Map wall10 = new Map(1020,160,wallWidth,240);
+
+
+    Map[] maps = {map_top, map_bot, map_left, map_right, wall01, wall02, wall03, wall04, wall05, wall06, wall07, wall08, wall09, wall10};
 
 
 
@@ -108,6 +125,7 @@ public class Game extends Application {
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
             player.rotateLeft();
             if (player.isColliding(maps)){
+                System.out.println("colliding");
                 player.rotateRight();
 
             }
@@ -115,12 +133,14 @@ public class Game extends Application {
         if (right) {
             player.rotateRight();
             if (player.isColliding(maps)){
+                System.out.println("colliding");
                 player.rotateLeft();
             }
         }
         if (forward) {
             player.moveForward();
             if (player.isColliding(maps)){
+                System.out.println("colliding");
                 player.moveBackward();
 
             }
@@ -128,6 +148,7 @@ public class Game extends Application {
         if (backward) {
             player.moveBackward();
             if (player.isColliding(maps)){
+                System.out.println("colliding");
                 player.moveForward();
 
             }
@@ -140,8 +161,8 @@ public class Game extends Application {
         projectiles = player.getProjectiles(); //initializes the projectile array
         Parameters para = getParameters();
         List<String> list = para.getRaw();
-        playerID = list.get(0);
-        System.out.println(list.get(0));
+        //playerID = list.get(0);
+        //System.out.println(list.get(0));
 
 
         //sets booleans to false if key is released

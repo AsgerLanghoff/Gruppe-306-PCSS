@@ -1,5 +1,6 @@
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
 public class Tank extends Rectangle {
@@ -87,8 +88,17 @@ public class Tank extends Rectangle {
     }
 
     public boolean isColliding(Map[] maps){ //method that returns true if colliding with a wall
+
+
+
         for (int i = 0; i < maps.length; i++) {
-            if (this.getBoundsInParent().intersects(maps[i].getBoundsInParent())) {
+
+
+            Shape intersect = Shape.intersect(maps[i],this);
+
+            if(intersect.getBoundsInParent().getWidth()>0) {
+                System.out.println("is colliding");
+            //if (this.getBoundsInParent().intersects(maps[i].getBoundsInParent())) {
                 return true;
             }
         }
