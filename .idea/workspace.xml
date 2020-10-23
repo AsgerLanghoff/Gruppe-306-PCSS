@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Projectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/SubLobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/SubLobby.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/TODO list" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/TODO list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Lobby.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/LobbySender.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/LobbySender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/SubLobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/SubLobby.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/LobbySender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/LobbySender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,34 +41,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
-  <component name="RunManager" selected="Application.Game">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="Gruppe-306-PCSS" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Lobby">
     <configuration name="Lobby" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lobby" />
       <module name="Gruppe-306-PCSS" />
@@ -105,14 +74,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.test5" />
-      <item itemvalue="Application.Game" />
+      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Lobby" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game" />
         <item itemvalue="Application.Lobby" />
       </list>
     </recent_temporary>
@@ -133,30 +100,21 @@
       <workItem from="1602503399853" duration="768000" />
       <workItem from="1602504214498" duration="2785000" />
       <workItem from="1603104294330" duration="9862000" />
+      <workItem from="1603195279106" duration="662000" />
+      <workItem from="1603268177229" duration="40000" />
+      <workItem from="1603441743851" duration="279000" />
+      <workItem from="1603442048498" duration="2061000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="407" y="37" key="#Project_Structure" timestamp="1603192501005">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="249" y="0" key="#Project_Structure" timestamp="1602503811321">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1602503811321" />
-    <state x="407" y="37" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1603192501005" />
     <state x="223" y="68" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602504465204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -173,40 +131,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1602502863500" />
-    <state x="591" y="194" key="FileChooserDialogImpl" timestamp="1603192648484">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1602503809569">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602503809569" />
-    <state x="591" y="194" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603192648484" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1603206240234">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom" timestamp="1603445322530">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603206240234" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603199388987" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1603206240234">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603445322530" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center" timestamp="1603445322530">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603206240234" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603199388987" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1603206240234">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603445322530" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left" timestamp="1603445322530">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603206240234" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603199388987" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1603206240234">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603445322530" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right" timestamp="1603445322530">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603177211376" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603206240234" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603199388987" />
-    <state x="311" y="0" key="SettingsEditor" timestamp="1603192654383">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603445322530" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1602504632882">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602504632882" />
-    <state x="311" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603192654383" />
+    <state x="209" y="73" key="new project wizard" timestamp="1603268217753">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603268217753" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603104575171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

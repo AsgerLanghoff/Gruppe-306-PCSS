@@ -4,12 +4,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +15,7 @@ public class Game extends Application {
 
     Projectile[] projectiles;
 
-    DataInputStream input = ClientTest.getInput();
-    DataOutputStream output = ClientTest.getOutput();
-
+    InputStream in = LobbySender.getFromServer();
 
     //movement booleans
     boolean left = false;
@@ -38,8 +33,6 @@ public class Game extends Application {
     int wallWidth = 10;
 
     String playerID;
-
-    //ClientTest data = new ClientTest(playerID);
 
     private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
@@ -61,8 +54,8 @@ public class Game extends Application {
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
         root.setPrefSize(width, height); //sets width and height of window
 
-        for (int i = 0; i < tanks.length; i++) { //makes the tanks
-            if (tanks[i] != null) {
+        for(int i = 0; i< tanks.length; i++){ //makes the tanks
+            if(tanks[i] != null) {
                 root.getChildren().add(tanks[i]);
             }
         }
@@ -71,72 +64,17 @@ public class Game extends Application {
             root.getChildren().add(maps[i]);
         }
 
-
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
-            private long lastUpdate = 0;
-
             @Override
             public void handle(long now) {
-                if (now-lastUpdate>=28_000_000){
-                    update();
-                    lastUpdate = now;
-                }
-            @Override
-            public void handle(long now) {
-                if(now-lastUpdate>=28_000_000){
-                    update();
-                    lastUpdate = now;
-                }
+                update();
             }
         };
         timer.start(); //starts the animationtimer
         return root; //returns the root
     }
 
-public void updatePositions(){
-    int x = (int) player.getTranslateX();
-    int y = (int) player.getTranslateY();
-
-
-    //if(output != null) {
-    try {
-        output.writeInt(x);
-        //System.out.println(x);
-        output.flush();
-        int xpos = input.readInt();
-        System.out.println(xpos);
-        player2.setTranslateX(xpos);
-        //player2.setTranslateY();
-        //player2.getTransforms().add(new Rotate(+angle, player2.getCenterX(), player2.getCenterY());
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    //}
-
-    try{
-
-    }catch(Exception e){
-        e.printStackTrace();
-    }
-}
-
     public void update() {//function where everything that happens every frame is called
-
-
-
-
-
-
-        /*try {
-            int xpos = input.readInt();
-            System.out.println(xpos);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         */
-
-        //System.out.println(player.getTranslateX());
         //moves ALL bullets on the map
         for (int i = 0; i < projectiles.length; i++) {
             if (projectiles[i] != null) { //only does this function if there are bullets in the array
@@ -160,7 +98,6 @@ public void updatePositions(){
                 }
             }
         }
-
 
         //checks the lifespan and removes bullet if it is over a threshold
         int threshold = 3000; //threshold - the bullets are removed after 300 frames
@@ -204,11 +141,10 @@ public void updatePositions(){
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
         projectiles = player.getProjectiles(); //initializes the projectile array
-        //Parameters para = getParameters();
-        //List<String> list = para.getRaw();
-        playerID = "signe";
-        //playerID = list.get(0);
-        //System.out.println(list.get(0));
+        Parameters para = getParameters();
+        List<String> list = para.getRaw();
+        playerID = list.get(0);
+        System.out.println(list.get(0));
 
 
         //sets booleans to false if key is released
@@ -258,8 +194,8 @@ public void updatePositions(){
     }
 
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         launch(args);
     }
 }

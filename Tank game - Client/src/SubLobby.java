@@ -9,6 +9,7 @@ public class SubLobby {
 
     SubLobby(String lobbyName, String host){
         this.lobbyName = lobbyName;
+        this.host = host;
         addToPlayers(host);
 
 
@@ -17,6 +18,11 @@ public class SubLobby {
 
     void addToPlayers(String p) {
         this.players.add(p);
+
+    }
+
+    public void setPlayers(List<String> players){
+        this.players = players;
 
     }
 

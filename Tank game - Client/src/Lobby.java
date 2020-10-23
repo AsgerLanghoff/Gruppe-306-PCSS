@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,29 +12,68 @@ public class Lobby {
     private String[] OtherPlayers = {};
     private boolean isHost;
     private String currentLobby;
-    private Datasender datasender;
+    private LobbySender sender;
 
     Scanner scanner = new Scanner(System.in);
 
-    Lobby() {
+
+    Lobby() throws IOException {
         System.out.println("Welcome to TANK the game!");
+
+
+
         System.out.println("What is your name?");
-        this.playerID = scanner.nextLine();
-        //datasender = new Datasender(playerID);
+        String id = scanner.nextLine();
+        this.playerID = id;
+        sender = new LobbySender(id);
+        sender.setPlayerID(id);
+        sender.sendPlayerID();
         options();
     }
 
-    public String getPlayerID() {
+    public String PlayerID(){
         return playerID;
     }
 
-    void createLobby(String code) {
-        checkLobbyDuplicate(code);
+    void createLobby(String code) throws IOException {
         SubLobby subLobby = new SubLobby(code, this.playerID);
         this.subLobbies.add(subLobby);
+        sender.sendSubLobby(subLobby);
     }
 
-    void joinLobby(String lobbyName) {
+
+    void updateLobbies(List<SubLobby> s) throws IOException{
+        System.out.println("1");
+        System.out.println(s.size());
+        for(int i = 0; i < s.size(); i++) {
+            System.out.println("2");
+
+            if(subLobbies.size() == 0){
+                subLobbies.add(s.get(i));
+                System.out.println("New lobby found!: "+s.get(i).getLobbyName());
+                break;
+            }
+
+            for (int j = 0; j<subLobbies.size(); j++){
+                System.out.println("3");
+                if(s.get(i).getLobbyName().equals(subLobbies.get(j).getLobbyName())){
+                    System.out.println("4");
+                    break; //Run next  i (atlså ikke add!!)
+                } else if (j == subLobbies.size()-1){
+                    subLobbies.add(s.get(i));
+                    System.out.println("New lobby found!: "+s.get(i).getLobbyName());
+                }
+            }
+
+        }
+    }
+    void joinLobby(String lobbyName) throws IOException {
+        updateLobbies(sender.requestLobbyList());
+
+        ////
+        ////CREATE THE SUBLOBIES FIRST!!!!
+        ////
+
         for (int i = 0; i < subLobbies.size(); i++) {
             if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
                 subLobbies.get(i).addToPlayers(this.playerID);
@@ -41,27 +81,14 @@ public class Lobby {
         }
     }
 
-    void checkLobbyDuplicate(String lobbyName) {
-        for (int i = 0; i < subLobbies.size(); i++) {
-            if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
-                System.out.println("that lobby name is occupied. returning to main menu");
-                options();
-            }
-        }
+    void checkDuplicate() {
     }
-
 
 
     void startGame(String lobby) {
         //Game game = new Game(playerID);
         String[] arguments = new String[]{playerID};
         Game.main(arguments);
-
-
-    void startGame(String lobbyName) {
-        System.out.println("Game started");
-        //start the game
-
     }
 
     void removeFromLobby(String lobbyName) {
@@ -74,10 +101,10 @@ public class Lobby {
                 subLobbies.get(i).getPlayers().remove(j);
                 if(subLobbies.get(i).getPlayers().size() == 0) {
                     subLobbies.remove(i);
-
                 }
             }
         }
+
 
         options();
     }
@@ -110,6 +137,7 @@ public class Lobby {
 
     }
 
+
     void hostOptions(String lobbyName) {
         System.out.println("Write \"start\" to start the game, or write \"list\" to see player list.");
         System.out.println("Write \"exit\" to leave lobby");
@@ -117,17 +145,16 @@ public class Lobby {
         try {
             String input = scanner.nextLine();
             if (input.equals("start")) {
-                System.out.println("Starting the game with lobby name "+lobbyName);
+                System.out.println("GET REAAAADYYY!!!!");
                 startGame(lobbyName); //Start ny instance af et game!
             } else if (input.equals("list")) {
 
                 for (int i = 0; i < subLobbies.size(); i++) {
                     if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
-                        System.out.println("Lobby name: "+subLobbies.get(i).getLobbyName());
-                        System.out.println("Players: ");
                         subLobbies.get(i).printPlayers();
                     }
                 }
+
 
                 hostOptions(lobbyName);
             } else if (input.equals("exit")) {
@@ -155,6 +182,8 @@ public class Lobby {
                 this.currentLobby = lobbyName;
                 isHost = true;
             } else if (option.equals("join")) {
+                updateLobbies(sender.requestLobbyList());
+
                 if (subLobbies.size() == 0) {
                     System.out.println("No available games at the moment :(");
                     options();
@@ -167,32 +196,28 @@ public class Lobby {
                 String lobbyName = scanner.nextLine();
                 this.currentLobby = lobbyName;
                 isHost = false;
+
                 joinLobby(lobbyName); //Try Catch her måske, kommer and på hvad funktionen skal
             } else {
                 System.out.println("please enter a valid option");
                 options();
             }
-
-
         } catch (
                 Exception e) {
+            System.out.println(e);
             System.out.println("please enter a valid option");
             options();
         }
 
-
         if (this.isHost) {
             hostOptions(this.currentLobby);
-
         } else {
             playerOptions(this.currentLobby);
-
         }
-
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Lobby l = new Lobby();
     }
 }
