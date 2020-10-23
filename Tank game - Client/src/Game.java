@@ -78,13 +78,22 @@ public class Game extends Application {
     }
 
     public void update() {//function where everything that happens every frame is called
+<<<<<<< HEAD
         int x = (int) player.getTranslateX();
         try {
             output.write(x);
         } catch (IOException e) {
+=======
+
+        /*
+        try {
+            output.writeInt((int)player.getTranslateX());
+            output.flush();
+        }catch(IOException e) {
+>>>>>>> parent of 85e68f4... send x pos
             e.printStackTrace();
         }
-
+         */
 
         //moves ALL bullets on the map
         for (int i = 0; i < projectiles.length; i++) {

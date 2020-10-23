@@ -48,9 +48,15 @@ public static DataInputStream input;
 
                         if (message.equalsIgnoreCase("ready")) {
                             String[] arguments = new String[]{};
+<<<<<<< HEAD
                             Game.main(arguments);
 
                             //connect = false;
+=======
+                            Lobby.main(arguments);
+
+                            connect = false;
+>>>>>>> parent of 85e68f4... send x pos
 
                         }
 
@@ -68,6 +74,8 @@ public static DataInputStream input;
                     try {
                         String message = input.readUTF();
                         System.out.println(message);
+
+
                         if (message.equalsIgnoreCase("Game started")) {
                             connect = false;
                         }
