@@ -46,6 +46,7 @@ public class Game extends Application {
     Tank[] tanks = {player, player2};//puts the tanks into an array
     //private List<SubLobby> tank = new ArrayList<SubLobby>();
 
+
     //map
     private Map top = new Map(0, 0, 1200, wallWidth);
     private Map bund = new Map(0, height - wallWidth, 1200, wallWidth);
@@ -53,6 +54,8 @@ public class Game extends Application {
     private Map venstre = new Map(0, 0, wallWidth, height);
     private Map map1 = new Map(200, 100, width / 2, wallWidth);
     Map[] maps = {top, bund, venstre, hoejre, map1};
+
+
 
 
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
@@ -170,15 +173,30 @@ public void updatePositions(){
 
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
             player.rotateLeft();
+            if (player.isColliding(maps)){
+                player.rotateRight();
+
+            }
         }
         if (right) {
             player.rotateRight();
+            if (player.isColliding(maps)){
+                player.rotateLeft();
+            }
         }
         if (forward) {
             player.moveForward();
+            if (player.isColliding(maps)){
+                player.moveBackward();
+
+            }
         }
         if (backward) {
             player.moveBackward();
+            if (player.isColliding(maps)){
+                player.moveForward();
+
+            }
         }
     }
 
