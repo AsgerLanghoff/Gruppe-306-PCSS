@@ -85,6 +85,14 @@ public class Tank extends Rectangle {
         setTranslateY(getTranslateY() - moveSpeed * Math.sin(angleR));
     }
 
+    double getCenterX(){
+        return this.getX()+this.getWidth()/2;
+    }
+
+    double getCenterY(){
+        return this.getY()+this.getHeight()/2;
+    }
+
     public int getAngle() {
         return angle;
     }
