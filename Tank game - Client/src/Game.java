@@ -6,16 +6,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Game extends Application {
-    InputStream input = ClientTest.getInput();
-    OutputStream output = ClientTest.getOutput();
+    DataInputStream input = ClientTest.getInput();
+    DataOutputStream output = ClientTest.getOutput();
 
 
     Projectile[] projectiles;
@@ -78,93 +76,92 @@ public class Game extends Application {
     }
 
     public void update() {//function where everything that happens every frame is called
-<<<<<<< HEAD
         int x = (int) player.getTranslateX();
-        try {
-            output.write(x);
-        } catch (IOException e) {
-=======
 
-        /*
+
         try {
-            output.writeInt((int)player.getTranslateX());
+            output.writeInt(x);
             output.flush();
+            int xpos = input.readInt();
+            System.out.println(xpos);
+
         }catch(IOException e) {
->>>>>>> parent of 85e68f4... send x pos
             e.printStackTrace();
         }
-         */
 
-        //moves ALL bullets on the map
-        for (int i = 0; i < projectiles.length; i++) {
-            if (projectiles[i] != null) { //only does this function if there are bullets in the array
-                for (int j = 0; j < maps.length; j++) {
-                    projectiles[i].moveBullet(maps[j]);//moves bullets
-                }
 
-                //removes a tank if hit
-                if (projectiles[i].collision(tanks) != null) {//only does this if there is a hit tank
-
-                    Tank tank = projectiles[i].collision(tanks);
-                    if (tank.getDead() == false) {
-                        root.getChildren().remove(tank);
-                        root.getChildren().remove(projectiles[i]);//removes the bullet visually
-                        projectiles[i] = null;//removes the bullets from the array
+            //moves ALL bullets on the map
+            for (int i = 0; i < projectiles.length; i++) {
+                if (projectiles[i] != null) { //only does this function if there are bullets in the array
+                    for (int j = 0; j < maps.length; j++) {
+                        projectiles[i].moveBullet(maps[j]);//moves bullets
                     }
-                    tank.setDead();
-                    //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
 
+                    //removes a tank if hit
+                    if (projectiles[i].collision(tanks) != null) {//only does this if there is a hit tank
+
+                        Tank tank = projectiles[i].collision(tanks);
+                        if (tank.getDead() == false) {
+                            root.getChildren().remove(tank);
+                            root.getChildren().remove(projectiles[i]);//removes the bullet visually
+                            projectiles[i] = null;//removes the bullets from the array
+                        }
+                        tank.setDead();
+                        //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
+
+
+                    }
+                }
+            }
+
+            //checks the lifespan and removes bullet if it is over a threshold
+            int threshold = 3000; //threshold - the bullets are removed after 300 frames
+            for (int i = 0; i < projectiles.length; i++) {
+                if (projectiles[i] != null && projectiles[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
+                    root.getChildren().remove(projectiles[i]); //removes the projectile child
+                    projectiles[i] = null; //removes projectile from array.
+                }
+            }
+
+            if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
+                player.rotateLeft();
+                if (player.isColliding(maps)) {
+                    player.rotateRight();
+
+                }
+            }
+            if (right) {
+                player.rotateRight();
+                if (player.isColliding(maps)) {
+                    player.rotateLeft();
+                }
+            }
+            if (forward) {
+                player.moveForward();
+                if (player.isColliding(maps)) {
+                    player.moveBackward();
+
+                }
+            }
+            if (backward) {
+                player.moveBackward();
+                if (player.isColliding(maps)) {
+                    player.moveForward();
 
                 }
             }
         }
 
-        //checks the lifespan and removes bullet if it is over a threshold
-        int threshold = 3000; //threshold - the bullets are removed after 300 frames
-        for (int i = 0; i < projectiles.length; i++) {
-            if (projectiles[i] != null && projectiles[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
-                root.getChildren().remove(projectiles[i]); //removes the projectile child
-                projectiles[i] = null; //removes projectile from array.
-            }
-        }
 
-        if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
-            player.rotateLeft();
-            if (player.isColliding(maps)) {
-                player.rotateRight();
-
-            }
-        }
-        if (right) {
-            player.rotateRight();
-            if (player.isColliding(maps)) {
-                player.rotateLeft();
-            }
-        }
-        if (forward) {
-            player.moveForward();
-            if (player.isColliding(maps)) {
-                player.moveBackward();
-
-            }
-        }
-        if (backward) {
-            player.moveBackward();
-            if (player.isColliding(maps)) {
-                player.moveForward();
-
-            }
-        }
-    }
-
-
+    @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
         projectiles = player.getProjectiles(); //initializes the projectile array
         Parameters para = getParameters();
         List<String> list = para.getRaw();
-        playerID = list.get(0);
-        System.out.println(list.get(0));
+        //playerID = list.get(0);
+        playerID = "lol";
+        //System.out.println(list.get(0));
 
 
         //sets booleans to false if key is released
@@ -208,6 +205,7 @@ public class Game extends Application {
                     }
                     break;
             }
+
         });
         stage.setScene(scene);//creates a stage using the scene that uses the root
         stage.show();

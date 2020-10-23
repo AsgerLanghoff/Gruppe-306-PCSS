@@ -48,16 +48,7 @@ public static DataInputStream input;
 
                         if (message.equalsIgnoreCase("ready")) {
                             String[] arguments = new String[]{};
-<<<<<<< HEAD
                             Game.main(arguments);
-
-                            //connect = false;
-=======
-                            Lobby.main(arguments);
-
-                            connect = false;
->>>>>>> parent of 85e68f4... send x pos
-
                         }
 
                     } catch (IOException e) {
