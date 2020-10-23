@@ -76,41 +76,42 @@ public class Game extends Application {
                 if(now-lastUpdate>=28_000_000){
                     update();
                     lastUpdate = now;
-
                 }
-
             }
         };
         timer.start(); //starts the animationtimer
         return root; //returns the root
     }
 
+public void updatePositions(){
+    int x = (int) player.getTranslateX();
+    int y = (int) player.getTranslateY();
 
+
+    //if(output != null) {
+    try {
+        output.writeInt(x);
+        //System.out.println(x);
+        output.flush();
+        int xpos = input.readInt();
+        System.out.println(xpos);
+        player2.setTranslateX(xpos);
+        //player2.setTranslateY();
+        //player2.getTransforms().add(new Rotate(+angle, player2.getCenterX(), player2.getCenterY());
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    //}
+
+    try{
+
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+}
 
     public void update() {//function where everything that happens every frame is called
-        int x = (int) player.getTranslateX();
-        int y = (int) player.getTranslateY();
 
-        //if(output != null) {
-            try {
-                output.writeInt(x);
-                //System.out.println(x);
-                output.flush();
-                int xpos = input.readInt();
-                System.out.println(xpos);
-                player2.setTranslateX(xpos);
-                //player2.setTranslateY();
-                //player2.getTransforms().add(new Rotate(+angle, player2.getCenterX(), player2.getCenterY());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        //}
-
-        try{
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
 
 
 
