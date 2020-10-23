@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="852c60dd-ea8a-4497-bf36-2330b936adc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MED3/JavaFX filer/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -48,7 +48,7 @@
       <recent name="C:\Users\signe\Documents\GitHub\Ny mappe\Gruppe-306-PCSS\Tank game - Client\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="Application.ClientTest">
     <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientTest" />
       <module name="Tank game - Client" />
@@ -86,8 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game" />
         <item itemvalue="Application.ClientTest" />
+        <item itemvalue="Application.Game" />
         <item itemvalue="Application.Lobby" />
         <item itemvalue="Application.test5" />
         <item itemvalue="Application.Map" />
@@ -110,6 +110,7 @@
       <workItem from="1601901242378" duration="8031000" />
       <workItem from="1602149432118" duration="38397000" />
       <workItem from="1603269016424" duration="12020000" />
+      <workItem from="1603439966794" duration="956000" />
     </task>
     <servers />
   </component>
@@ -141,29 +142,32 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="914" y="0" width="629" height="830" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1602488236416" />
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1602506772798">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1603439988782">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602506772798" />
-    <state width="1493" height="146" key="GridCell.Tab.0.bottom" timestamp="1603370240984">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1603439988782" />
+    <state width="723" height="213" key="GridCell.Tab.0.bottom" timestamp="1603440614031">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="146" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603370240984" />
-    <state width="1493" height="146" key="GridCell.Tab.0.center" timestamp="1603370240984">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="723" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1603440614031" />
+    <state width="723" height="213" key="GridCell.Tab.0.center" timestamp="1603440614031">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="146" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603370240984" />
-    <state width="1493" height="146" key="GridCell.Tab.0.left" timestamp="1603370240983">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="723" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1603440614031" />
+    <state width="723" height="213" key="GridCell.Tab.0.left" timestamp="1603440614030">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="146" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603370240983" />
-    <state width="1493" height="146" key="GridCell.Tab.0.right" timestamp="1603370240984">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="723" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1603440614030" />
+    <state width="723" height="213" key="GridCell.Tab.0.right" timestamp="1603440614031">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="146" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603370240984" />
-    <state width="1493" height="257" key="GridCell.Tab.1.bottom" timestamp="1603268597124">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
+    <state width="723" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1603440614031" />
+    <state width="1493" height="257" key="GridCell.Tab.1.bottom" timestamp="1603268597124" />
     <state width="1493" height="257" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603268597124" />
     <state width="1493" height="257" key="GridCell.Tab.1.center" timestamp="1603268597123">
       <screen x="0" y="0" width="1536" height="824" />
@@ -177,10 +181,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="257" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603268597123" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1602506781764">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1603439996979">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602506781764" />
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1603439996979" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602235737088">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -193,5 +198,55 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602847875287" />
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>

@@ -68,14 +68,21 @@ public class Game extends Application {
         }
 
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
+            private long lastUpdate = 0;
+
             @Override
             public void handle(long now) {
-                update();
+                if (now-lastUpdate>=28_000_000){
+                    update();
+                    lastUpdate = now;
+                }
             }
         };
         timer.start(); //starts the animationtimer
         return root; //returns the root
     }
+
+
 
     public void update() {//function where everything that happens every frame is called
         int x = (int)player.getTranslateX();
