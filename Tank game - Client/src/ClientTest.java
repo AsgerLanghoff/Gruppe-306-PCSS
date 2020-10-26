@@ -1,6 +1,7 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +9,6 @@ import java.util.Scanner;
 public class ClientTest {
 public static DataOutputStream output;
 public static DataInputStream input;
-
 
 
     public static void main(String[] args) {
@@ -49,6 +49,7 @@ public static DataInputStream input;
                         if (message.equalsIgnoreCase("ready")) {
                             String[] arguments = new String[]{};
                             Game.main(arguments);
+                            connect = false;
                         }
 
                     } catch (IOException e) {
@@ -59,6 +60,7 @@ public static DataInputStream input;
             });
             write.start();
 
+            /*
             Thread read = new Thread(() -> {
                 boolean connect = true;
                 while (connect) {
@@ -80,10 +82,13 @@ public static DataInputStream input;
             });
             read.start();
 
+             */
+
         } catch (
                 IOException ex) {
             System.out.println(ex.toString() + '\n');
         }
+
     }
 
     public static DataInputStream getInput() {

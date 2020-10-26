@@ -40,7 +40,6 @@ public class Game extends Application {
     private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
     Tank[] tanks = {player, player2};//puts the tanks into an array
-    //private List<SubLobby> tank = new ArrayList<SubLobby>();
 
 
     //map
@@ -50,6 +49,10 @@ public class Game extends Application {
     private Map venstre = new Map(0, 0, wallWidth, height);
     private Map map1 = new Map(200, 100, width / 2, wallWidth);
     Map[] maps = {top, bund, venstre, hoejre, map1};
+
+    int prevX = 300;
+    int prevY = 300;
+    int prevA = 0;
 
 
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
@@ -65,9 +68,59 @@ public class Game extends Application {
             root.getChildren().add(maps[i]);
         }
 
+
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
             @Override
             public void handle(long now) {
+                int X = (int) player.getTranslateX();
+                int Y = (int) player.getTranslateY();
+                int A = player.getAngle();
+                int ID = 0;
+
+                int[] positionInfo = {X, Y, A};
+
+                if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) {
+                    try {
+                        output.writeUTF("INFO");
+                        for (int i = 0; i < positionInfo.length; i++) {
+                            output.writeInt(positionInfo[i]);
+                            //System.out.println(positionInfo[i]);
+                            prevX = X;
+                            prevY = Y;
+                            prevA = A;
+                        }
+                        output.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                try {
+                    String sendMessage = input.readUTF();
+                    if (sendMessage.equals("INFO")) {
+                        int x = input.readInt();
+                        System.out.print("X: " + x);
+                        int y = input.readInt();
+                        System.out.print("Y: " + y);
+                        int a = input.readInt();
+                        System.out.print("A: " + a);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            /*
+                int[] array = new int[4];
+                try {
+                    for (int i = 0; i < 4; i++) {
+                        array[i] = input.readInt();
+                    }
+                } catch (IOException e) {
+                }
+
+             */
+
+
                 update();
             }
         };
@@ -75,82 +128,71 @@ public class Game extends Application {
         return root; //returns the root
     }
 
+
     public void update() {//function where everything that happens every frame is called
-        int x = (int) player.getTranslateX();
 
 
-        try {
-            output.writeInt(x);
-            output.flush();
-            int xpos = input.readInt();
-            System.out.println(xpos);
+        //moves ALL bullets on the map
+        for (int i = 0; i < projectiles.length; i++) {
+            if (projectiles[i] != null) { //only does this function if there are bullets in the array
+                for (int j = 0; j < maps.length; j++) {
+                    projectiles[i].moveBullet(maps[j]);//moves bullets
+                }
 
-        }catch(IOException e) {
-            e.printStackTrace();
+                //removes a tank if hit
+                if (projectiles[i].collision(tanks) != null) {//only does this if there is a hit tank
+
+                    Tank tank = projectiles[i].collision(tanks);
+                    if (tank.getDead() == false) {
+                        root.getChildren().remove(tank);
+                        root.getChildren().remove(projectiles[i]);//removes the bullet visually
+                        projectiles[i] = null;//removes the bullets from the array
+                    }
+                    tank.setDead();
+                    //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
+
+
+                }
+            }
         }
 
-
-            //moves ALL bullets on the map
-            for (int i = 0; i < projectiles.length; i++) {
-                if (projectiles[i] != null) { //only does this function if there are bullets in the array
-                    for (int j = 0; j < maps.length; j++) {
-                        projectiles[i].moveBullet(maps[j]);//moves bullets
-                    }
-
-                    //removes a tank if hit
-                    if (projectiles[i].collision(tanks) != null) {//only does this if there is a hit tank
-
-                        Tank tank = projectiles[i].collision(tanks);
-                        if (tank.getDead() == false) {
-                            root.getChildren().remove(tank);
-                            root.getChildren().remove(projectiles[i]);//removes the bullet visually
-                            projectiles[i] = null;//removes the bullets from the array
-                        }
-                        tank.setDead();
-                        //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
-
-
-                    }
-                }
+        //checks the lifespan and removes bullet if it is over a threshold
+        int threshold = 3000; //threshold - the bullets are removed after 300 frames
+        for (int i = 0; i < projectiles.length; i++) {
+            if (projectiles[i] != null && projectiles[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
+                root.getChildren().remove(projectiles[i]); //removes the projectile child
+                projectiles[i] = null; //removes projectile from array.
             }
+        }
 
-            //checks the lifespan and removes bullet if it is over a threshold
-            int threshold = 3000; //threshold - the bullets are removed after 300 frames
-            for (int i = 0; i < projectiles.length; i++) {
-                if (projectiles[i] != null && projectiles[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
-                    root.getChildren().remove(projectiles[i]); //removes the projectile child
-                    projectiles[i] = null; //removes projectile from array.
-                }
-            }
-
-            if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
-                player.rotateLeft();
-                if (player.isColliding(maps)) {
-                    player.rotateRight();
-
-                }
-            }
-            if (right) {
+        if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
+            player.rotateLeft();
+            if (player.isColliding(maps)) {
                 player.rotateRight();
-                if (player.isColliding(maps)) {
-                    player.rotateLeft();
-                }
-            }
-            if (forward) {
-                player.moveForward();
-                if (player.isColliding(maps)) {
-                    player.moveBackward();
 
-                }
-            }
-            if (backward) {
-                player.moveBackward();
-                if (player.isColliding(maps)) {
-                    player.moveForward();
-
-                }
             }
         }
+        if (right) {
+            player.rotateRight();
+            if (player.isColliding(maps)) {
+                player.rotateLeft();
+            }
+        }
+        if (forward) {
+            player.moveForward();
+            if (player.isColliding(maps)) {
+                player.moveBackward();
+
+            }
+        }
+        if (backward) {
+            player.moveBackward();
+            if (player.isColliding(maps)) {
+                player.moveForward();
+
+            }
+        }
+    }
 
 
     @Override
