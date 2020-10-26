@@ -86,7 +86,11 @@ public class UserThread extends Thread {
 	}
 
 	public void readyGame() throws IOException {
-		String subLobbyInit = input.readUTF();
+		String subLobbyInit = input.readUTF(); // recieves the name of the sublobby wanting to initialize
+		recieveSubLobby();
+		if (getLobbyName.equals(subLobbyInit)){
+
+		}
 
 	}
 
