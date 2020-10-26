@@ -33,15 +33,49 @@ public class UserThread extends Thread {
 
 			while(true){
 				String commandType = input.readUTF();
-				if(commandType.equals("sendSubLobby")){
+				if(commandType.equals("sendSubLobby")){  // creating a lobby on the server
 					System.out.println(playerID + "creating lobby ");
 					recieveSubLobby();
 					System.out.println(playerID + "'s lobby created");
 				}
-				if(commandType.equals("requestLobbyList")){
+				if(commandType.equals("requestLobbyList")){ //requesting the lobbylist
 					System.out.println("Sending lobby list to " + playerID);
 					sendSubLobby();
 				} 
+				if(commandType.equals("updateLobby")){ // update the lobbylist on serverside
+					System.out.println("updating lobby ");
+					updateServerLobby();
+
+				}
+				if(commandType.equals("updatePlayers")){ // update the lobby/playerlist on clientside
+					System.out.println("updating playerlist");
+					updateClientLobby();
+				}
+				if(commandType.equals("playerReady")){
+					System.out.println(playerID + " is ready");
+					String lobby = input.readUTF();
+					for ( int i = 0; i< database.getLobbies().size(); i++){
+						if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
+							database.getLobbies().get(i).increaseReady();
+						}
+					}
+
+				}
+				if(commandType.equals("readyGame")){
+					String lobby = input.readUTF();
+
+					for ( int i = 0; i< database.getLobbies().size(); i++){
+						if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
+							if(database.getLobbies().get(i).getReady()==database.getLobbies().get(i).getPlayers().size()){
+								output.writeBoolean(true);
+							}
+							else {
+								output.writeBoolean(false);
+							}
+						}
+					}
+
+				}
 
 
 
@@ -62,6 +96,36 @@ public class UserThread extends Thread {
 		// for(int i = 0; i<len; i++){
 		// 	players.add(input.readUTF());
 		// }
+
+	}
+
+	public void readyCheck() throws IOException{
+
+	}
+
+	public void updateClientLobby() throws IOException{
+		String uLobbyName = input.readUTF();
+		for ( int i = 0; i< database.getLobbies().size(); i++){
+			if( database.getLobbies().get(i).getLobbyName().equals(uLobbyName)){
+				int len = database.getLobbies().get(i).getPlayers().size();
+				output.writeInt(len);
+				for(int j = 0; j< len; j++){
+					output.writeUTF(database.getLobbies().get(i).getPlayers().get(j));
+				}
+
+			}
+		}
+	}
+
+
+	public void updateServerLobby() throws IOException {
+		String uLobbyName = input.readUTF();
+		String uPlayerID = input.readUTF();
+		for (int i = 0; i< database.getLobbies().size(); i++){
+			if( database.getLobbies().get(i).getLobbyName().equals(uLobbyName)){
+				database.getLobbies().get(i).addPlayer(uPlayerID);
+			}
+		}
 
 	}
 
