@@ -42,6 +42,11 @@ public class UserThread extends Thread {
 					System.out.println("Sending lobby list to " + playerID);
 					sendSubLobby();
 				} 
+				if(commandType.equals("readyGame")){
+					System.out.println(playerID + "is Ready");
+					readyGame();
+
+				}
 
 
 
@@ -78,6 +83,11 @@ public class UserThread extends Thread {
 				output.writeUTF(lobbies.get(i).getPlayers().get(j));
 			}
 		}
+	}
+
+	public void readyGame() throws IOException {
+		String subLobbyInit = input.readUTF();
+
 	}
 
 
