@@ -2,14 +2,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 
-public class Lobby {
+public class Lobby{
 
     //    private List<String>activeGameName = new ArrayList<String>();
     private List<SubLobby> subLobbies = new ArrayList<SubLobby>();
-
+    public static List<String> players = new ArrayList<>();
+    
     private String playerID;
-    private String[] OtherPlayers = {};
     private boolean isHost;
     private String currentLobby;
     private LobbySender sender;
@@ -18,6 +19,8 @@ public class Lobby {
 
 
     Lobby() throws IOException {
+
+
         System.out.println("Welcome to TANK the game!");
 
 
@@ -35,6 +38,8 @@ public class Lobby {
         return playerID;
     }
 
+
+
     void createLobby(String code) throws IOException {
         SubLobby subLobby = new SubLobby(code, this.playerID);
         this.subLobbies.add(subLobby);
@@ -43,50 +48,54 @@ public class Lobby {
 
 
     void updateLobbies(List<SubLobby> s) throws IOException{
-        System.out.println("1");
-        System.out.println(s.size());
         for(int i = 0; i < s.size(); i++) {
-            System.out.println("2");
-
             if(subLobbies.size() == 0){
                 subLobbies.add(s.get(i));
                 System.out.println("New lobby found!: "+s.get(i).getLobbyName());
                 break;
             }
-
             for (int j = 0; j<subLobbies.size(); j++){
-                System.out.println("3");
                 if(s.get(i).getLobbyName().equals(subLobbies.get(j).getLobbyName())){
-                    System.out.println("4");
                     break; //Run next  i (atlså ikke add!!)
                 } else if (j == subLobbies.size()-1){
                     subLobbies.add(s.get(i));
                     System.out.println("New lobby found!: "+s.get(i).getLobbyName());
                 }
             }
-
         }
     }
+
     void joinLobby(String lobbyName) throws IOException {
         updateLobbies(sender.requestLobbyList());
-
-        ////
-        ////CREATE THE SUBLOBIES FIRST!!!!
-        ////
 
         for (int i = 0; i < subLobbies.size(); i++) {
             if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
                 subLobbies.get(i).addToPlayers(this.playerID);
             }
         }
+
+        sender.updateLobby(this.playerID, lobbyName);
+
+
     }
 
-    void checkDuplicate() {
+
+
+    void readyCheck() throws IOException {
+        sender.readyGame(currentLobby);
+        updatePlayers();
+        System.out.println("READYY!!!!");
+        startGame(this.currentLobby);
+
     }
 
 
-    void startGame(String lobby) {
+    public void startGame(String lobby) throws IOException {
         //Game game = new Game(playerID);
+
+
+        this.players = sender.updatePlayers(this.currentLobby);
+
         String[] arguments = new String[]{playerID};
         Game.main(arguments);
     }
@@ -105,18 +114,27 @@ public class Lobby {
             }
         }
 
-
         options();
     }
 
+
+
     void playerOptions(String lobbyName) {
         System.out.println("Write \"list\" to see player list.");
-        System.out.println("Write \"exit\" to leave lobby");
+        System.out.print("Write \"exit\" to leave lobby");
+        System.out.println("Write \"ready\" if you are ready to play the game. The game starts when everyone is ready");
         try {
             String input = scanner.nextLine();
+
+            if(input.equals("ready")){
+                readyCheck();
+            }
+
+
             if (input.equals("exit")) {
                 removeFromLobby(lobbyName);
             } else if (input.equals("list")) {
+                updatePlayers();
 
                 for (int i = 0; i < subLobbies.size(); i++) {
                     if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
@@ -137,18 +155,28 @@ public class Lobby {
 
     }
 
+    void updatePlayers() throws IOException {
+        List<String> newPlayers = sender.updatePlayers(this.currentLobby);
+
+        for(int i = 0; i < subLobbies.size(); i++) {
+           if(subLobbies.get(i).getLobbyName().equals(this.currentLobby)){
+               subLobbies.get(i).setPlayers(newPlayers);
+
+            }
+        }
+    }
 
     void hostOptions(String lobbyName) {
-        System.out.println("Write \"start\" to start the game, or write \"list\" to see player list.");
+        System.out.println("Write \"ready\" if you are ready to start the game, or write \"list\" to see player list.");
         System.out.println("Write \"exit\" to leave lobby");
 
         try {
             String input = scanner.nextLine();
-            if (input.equals("start")) {
-                System.out.println("GET REAAAADYYY!!!!");
-                startGame(lobbyName); //Start ny instance af et game!
+            if (input.equals("ready")) {
+                readyCheck();
+                //startGame(lobbyName); //Start ny instance af et game!
             } else if (input.equals("list")) {
-
+                updatePlayers();
                 for (int i = 0; i < subLobbies.size(); i++) {
                     if (subLobbies.get(i).getLobbyName().equals(lobbyName)) {
                         subLobbies.get(i).printPlayers();
@@ -202,8 +230,7 @@ public class Lobby {
                 System.out.println("please enter a valid option");
                 options();
             }
-        } catch (
-                Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
             System.out.println("please enter a valid option");
             options();
@@ -217,7 +244,12 @@ public class Lobby {
     }
 
 
+
     public static void main(String[] args) throws IOException {
-        Lobby l = new Lobby();
+
+                Lobby l = new Lobby();
+
+
+
     }
 }
