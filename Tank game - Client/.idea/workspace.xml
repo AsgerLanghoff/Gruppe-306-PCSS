@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="852c60dd-ea8a-4497-bf36-2330b936adc6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Lobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Projectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/SubLobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/SubLobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/TODO list" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/TODO list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gruppe-306-PCSS/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Lobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/LobbySender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/LobbySender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/SubLobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/SubLobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LobbySender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LobbySender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +36,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="experimental" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -115,7 +100,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -136,17 +121,18 @@
       <workItem from="1603279696395" duration="13398000" />
       <workItem from="1603438596977" duration="2098000" />
       <workItem from="1603441070032" duration="2855000" />
+      <workItem from="1603460409343" duration="923000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603279788641">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603460626248">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603279788641" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603460626248" />
     <state x="534" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602681955786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -203,22 +189,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="257" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602680763418" />
-    <state x="310" y="0" key="SettingsEditor" timestamp="1603367162010">
+    <state x="277" y="55" key="SettingsEditor" timestamp="1603460765511">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="310" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603367162010" />
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603460765511" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602235737088">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1602235737088" />
-    <state x="209" y="114" key="new project wizard" timestamp="1602161145789">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1603460411165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601469654290" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1603269430412">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603269430412" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603460411165" />
     <state x="209" y="34" key="new project wizard" timestamp="1603269457638">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
