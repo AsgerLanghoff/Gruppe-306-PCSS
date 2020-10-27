@@ -1,4 +1,4 @@
-package src.com.company.src.com.company;
+package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class LobbyDatabase {
     public int getReady() {
         return ready;
     }
-    
+
     public void increaseReady() {
         ready++;
     }
@@ -44,3 +44,4 @@ public class LobbyDatabase {
 
 
 }
+

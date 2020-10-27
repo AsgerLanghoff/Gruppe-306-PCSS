@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/GameStartChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/LobbySender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/com/company/src/com/company/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/com/company/src/com/company/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/com/company/src/com/company/UserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/com/company/src/com/company/UserThread.java" afterDir="false" />
-    </list>
+    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +90,7 @@
       <workItem from="1603442048498" duration="2061000" />
       <workItem from="1603706449728" duration="174000" />
       <workItem from="1603706837050" duration="4546000" />
-      <workItem from="1603802757074" duration="1137000" />
+      <workItem from="1603802757074" duration="1854000" />
     </task>
     <servers />
   </component>
@@ -151,10 +142,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603803212179" />
-    <state x="209" y="73" key="new project wizard" timestamp="1603268217753">
+    <state x="209" y="68" key="new project wizard" timestamp="1603805626976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603268217753" />
+    <state x="209" y="68" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603805626976" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603104575171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
