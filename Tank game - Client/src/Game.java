@@ -38,10 +38,11 @@ public class Game extends Application {
 
     String playerID = "1";
 
-    private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
-    private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
-    Tank[] tanks = {player, player2};//puts the tanks into an array
+    //private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
+    //private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
 
+    //Tank[] tanks = {player, player2};//puts the tanks into an array
+    List<Tank> tanks = new ArrayList<>();
 
     //map
     private Map top = new Map(0, 0, 1200, wallWidth);
@@ -108,13 +109,13 @@ public class Game extends Application {
                             if (sendMessage.equals("INFO")) {
                                 int x = input.readInt();
                                 player2.setTranslateX(x);
-                                System.out.print("X: " + x);
+                                System.out.println("X: " + x);
                                 int y = input.readInt();
                                 player2.setTranslateY(y);
-                                System.out.print("Y: " + y);
+                                System.out.println("Y: " + y);
                                 int a = input.readInt();
                                 player2.setToAngle(a);
-                                System.out.print("A: " + a);
+                                System.out.println("A: " + a);
                             }
                             if (sendMessage.equals("BULLET")) {
                                 spawnProjectile(player2);
@@ -171,9 +172,8 @@ public class Game extends Application {
                             tanks[t].getProjectiles()[i] = null;//removes the bullets from the array
                         }
                         tank.setDead();
+
                         //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
-
-
                     }
                 }
             }
@@ -228,6 +228,7 @@ public class Game extends Application {
             if (tank.getPlayerID().equals(player.getPlayerID())) {
                 try {
                     output.writeUTF("BULLET");
+                    System.out.println("shoot");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -305,5 +306,8 @@ public class Game extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        for(int i = 0; i < Lobby.players.size(); i++){
+            
+        }
     }
 }
