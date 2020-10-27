@@ -63,6 +63,10 @@ public class Tank extends Rectangle {
 
     }
 
+    String getPlayerID(){
+        return playerID;
+    }
+
     void setToAngle(int angle){
         getTransforms().add(new Rotate(angle-getAngle(), getX() + getWidth()/2, getY() + getHeight()/2));
         this.angle = angle;

@@ -71,11 +71,10 @@ public class Game extends Application {
         }
 
 
-
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
             @Override
             public void handle(long now) {
-                if(now - lastUpdate >= 20_000_000) {
+                if (now - lastUpdate >= 20_000_000) {
 
 
                     int X = (int) player.getTranslateX();
@@ -117,8 +116,9 @@ public class Game extends Application {
                                 player2.setToAngle(a);
                                 System.out.print("A: " + a);
                             }
-                            if(sendMessage.equals("BULLET")){
+                            if (sendMessage.equals("BULLET")) {
                                 player2.shoot();
+                                System.out.println("BUELLELETETETET§!!!!!!!");
                             }
                         }
                     } catch (IOException e) {
@@ -217,6 +217,21 @@ public class Game extends Application {
     }
 
 
+    public void spawnProjectile(Tank tank) {
+        Projectile p = tank.shoot();
+        projectiles = tank.getProjectiles();
+        if (p != null) {
+            root.getChildren().add(p);
+            if (tank.getPlayerID().equals(this.playerID)) {
+                try {
+                    output.writeUTF("BULLET");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
@@ -262,7 +277,8 @@ public class Game extends Application {
                     backward = true;
                     break;
                 case SPACE:
-                    Projectile p = player.shoot();
+                    spawnProjectile(player);
+                   /* Projectile p = player.shoot();
                     projectiles = player.getProjectiles();
                     if (p != null) {
                         root.getChildren().add(p);
@@ -272,6 +288,8 @@ public class Game extends Application {
                             ex.printStackTrace();
                         }
                     }
+
+                    */
 
                     break;
             }
