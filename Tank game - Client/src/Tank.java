@@ -63,6 +63,10 @@ public class Tank extends Rectangle {
 
     }
 
+    void setToAngle(int angle){
+        getTransforms().add(new Rotate(angle-getAngle(), getX() + getWidth()/2, getY() + getHeight()/2));
+        this.angle = angle;
+    }
 
     void rotateLeft() { //function for rotating a sprite left, pivoting around its middle
         getTransforms().add(new Rotate(-angleIncrease, getX() + getWidth() / 2, getY() + getHeight() / 2));
