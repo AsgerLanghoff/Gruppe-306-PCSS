@@ -13,13 +13,12 @@ import java.util.List;
 
 
 public class Game extends Application {
-    DataInputStream input = ClientTest.getInput();
-    DataOutputStream output = ClientTest.getOutput();
+    DataInputStream input = LobbySender.getFromServer();
+    DataOutputStream output = LobbySender.getToServer();
 
 
     Projectile[] projectiles;
 
-    InputStream in = LobbySender.getFromServer();
 
     //movement booleans
     boolean left = false;
@@ -36,7 +35,11 @@ public class Game extends Application {
 
     int wallWidth = 10;
 
-    String playerID = "1";
+    String playerID;
+    int playerIndex;
+
+    int[] startX = {100, 100, 300, 300}; //start x-coordinates
+    int[] startY = {100, 300, 100, 300}; //start y-coordinates
 
     //private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     //private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
@@ -61,9 +64,9 @@ public class Game extends Application {
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
         root.setPrefSize(width, height); //sets width and height of window
 
-        for (int i = 0; i < tanks.length; i++) { //makes the tanks
-            if (tanks[i] != null) {
-                root.getChildren().add(tanks[i]);
+        for (int i = 0; i < tanks.size(); i++) { //makes the tanks
+            if (tanks.get(i) != null) {
+                root.getChildren().add(tanks.get(i));
             }
         }
 
@@ -78,16 +81,16 @@ public class Game extends Application {
                 if (now - lastUpdate >= 20_000_000) {
 
 
-                    int X = (int) player.getTranslateX();
-                    int Y = (int) player.getTranslateY();
-                    int A = player.getAngle();
-                    int ID = 0;
+                    int X = (int) tanks.get(playerIndex).getTranslateX();
+                    int Y = (int) tanks.get(playerIndex).getTranslateY();
+                    int A = tanks.get(playerIndex).getAngle();
 
                     int[] positionInfo = {X, Y, A};
 
                     if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) {
                         try {
                             output.writeUTF("INFO");
+                            output.writeInt(playerIndex);
                             for (int i = 0; i < positionInfo.length; i++) {
                                 output.writeInt(positionInfo[i]);
                                 //System.out.println(positionInfo[i]);
@@ -106,19 +109,20 @@ public class Game extends Application {
                         if (i == 0) {
                         } else {
                             String sendMessage = input.readUTF();
+                            int serverIndex = input.readInt();
                             if (sendMessage.equals("INFO")) {
                                 int x = input.readInt();
-                                player2.setTranslateX(x);
+                                tanks.get(serverIndex).setTranslateX(x);
                                 System.out.println("X: " + x);
                                 int y = input.readInt();
-                                player2.setTranslateY(y);
+                                tanks.get(serverIndex).setTranslateY(y);
                                 System.out.println("Y: " + y);
                                 int a = input.readInt();
-                                player2.setToAngle(a);
+                                tanks.get(serverIndex).setToAngle(a);
                                 System.out.println("A: " + a);
                             }
                             if (sendMessage.equals("BULLET")) {
-                                spawnProjectile(player2);
+                                spawnProjectile(tanks.get(serverIndex));
                                 System.out.println("BUELLELETETETET§!!!!!!!");
                             }
                         }
@@ -154,22 +158,22 @@ public class Game extends Application {
 
     public void update() {//function where everything that happens every frame is called
 
-        for (int t = 0; t < tanks.length; t++) {
+        for (int t = 0; t < tanks.size(); t++) {
             //moves ALL bullets on the map
             for (int i = 0; i < projectiles.length; i++) {
-                if (tanks[t].getProjectiles()[i] != null) { //only does this function if there are bullets in the array
+                if (tanks.get(t).getProjectiles()[i] != null) { //only does this function if there are bullets in the array
                     for (int j = 0; j < maps.length; j++) {
-                        tanks[t].getProjectiles()[i].moveBullet(maps[j]);//moves bullets
+                        tanks.get(t).getProjectiles()[i].moveBullet(maps[j]);//moves bullets
                     }
 
                     //removes a tank if hit
-                    if (tanks[t].getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
+                    if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
 
-                        Tank tank = tanks[t].getProjectiles()[i].collision(tanks);
+                        Tank tank = tanks.get(t).getProjectiles()[i].collision(tanks);
                         if (tank.getDead() == false) {
                             root.getChildren().remove(tank);
-                            root.getChildren().remove(tanks[t].getProjectiles()[i]);//removes the bullet visually
-                            tanks[t].getProjectiles()[i] = null;//removes the bullets from the array
+                            root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
+                            tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
                         }
                         tank.setDead();
 
@@ -180,10 +184,10 @@ public class Game extends Application {
 
             //checks the lifespan and removes bullet if it is over a threshold
             int threshold = 3000; //threshold - the bullets are removed after 300 frames
-            for (int i = 0; i < tanks[t].getProjectiles().length; i++) {
-                if (tanks[t].getProjectiles()[i] != null && tanks[t].getProjectiles()[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
-                    root.getChildren().remove(tanks[t].getProjectiles()[i]); //removes the projectile child
-                    tanks[t].getProjectiles()[i] = null; //removes projectile from array.
+            for (int i = 0; i < tanks.get(t).getProjectiles().length; i++) {
+                if (tanks.get(t).getProjectiles()[i] != null && tanks.get(t).getProjectiles()[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
+                    root.getChildren().remove(tanks.get(t).getProjectiles()[i]); //removes the projectile child
+                    tanks.get(t).getProjectiles()[i] = null; //removes projectile from array.
                 }
             }
 
@@ -191,29 +195,29 @@ public class Game extends Application {
         }
 
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
-            player.rotateLeft();
-            if (player.isColliding(maps)) {
-                player.rotateRight();
+            tanks.get(playerIndex).rotateLeft();
+            if (tanks.get(playerIndex).isColliding(maps)) {
+                tanks.get(playerIndex).rotateRight();
 
             }
         }
         if (right) {
-            player.rotateRight();
-            if (player.isColliding(maps)) {
-                player.rotateLeft();
+            tanks.get(playerIndex).rotateRight();
+            if (tanks.get(playerIndex).isColliding(maps)) {
+                tanks.get(playerIndex).rotateLeft();
             }
         }
         if (forward) {
-            player.moveForward();
-            if (player.isColliding(maps)) {
-                player.moveBackward();
+            tanks.get(playerIndex).moveForward();
+            if (tanks.get(playerIndex).isColliding(maps)) {
+                tanks.get(playerIndex).moveBackward();
 
             }
         }
         if (backward) {
-            player.moveBackward();
-            if (player.isColliding(maps)) {
-                player.moveForward();
+            tanks.get(playerIndex).moveBackward();
+            if (tanks.get(playerIndex).isColliding(maps)) {
+                tanks.get(playerIndex).moveForward();
 
             }
         }
@@ -225,9 +229,10 @@ public class Game extends Application {
         //projectiles = tank.getProjectiles();
         if (p != null) {
             root.getChildren().add(p);
-            if (tank.getPlayerID().equals(player.getPlayerID())) {
+            if (tank.getPlayerID().equals(tanks.get(playerIndex).getPlayerID())) {
                 try {
                     output.writeUTF("BULLET");
+                    output.writeInt(playerIndex);
                     System.out.println("shoot");
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -239,12 +244,20 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
-        projectiles = player.getProjectiles(); //initializes the projectile array
+        //projectiles = player.getProjectiles(); //initializes the projectile array
         Parameters para = getParameters();
         List<String> list = para.getRaw();
-        //playerID = list.get(0);
-        playerID = "lol";
-        //System.out.println(list.get(0));
+        playerID = list.get(0);
+
+        for(int i = 0; i < Lobby.players.size(); i++){
+            tanks.add(new Tank(startX[i], startY[i], 70, 40, Lobby.players.get(i), Color.GOLD));
+            if(playerID.equals(Lobby.players.get(i))){
+                playerIndex = i;
+            }
+        }
+
+
+
 
 
         //sets booleans to false if key is released
@@ -281,7 +294,7 @@ public class Game extends Application {
                     backward = true;
                     break;
                 case SPACE:
-                    spawnProjectile(player);
+                    spawnProjectile(tanks.get(playerIndex));
                    /* Projectile p = player.shoot();
                     projectiles = player.getProjectiles();
                     if (p != null) {
@@ -306,8 +319,5 @@ public class Game extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        for(int i = 0; i < Lobby.players.size(); i++){
-            
-        }
     }
 }

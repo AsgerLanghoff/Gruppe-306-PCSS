@@ -1,6 +1,8 @@
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.util.List;
+
 public class Projectile extends Circle {
 
     final static int MAX_SPEED = 2;
@@ -44,11 +46,11 @@ public class Projectile extends Circle {
     }
 
 
-    Tank collision(Tank[] tank){ //method that returns a tank that has been hit
-        for (int i = 0; i < tank.length; i++) {
-            if (this.getBoundsInParent().intersects(tank[i].getBoundsInParent())) {
+    Tank collision(List<Tank> tank){ //method that returns a tank that has been hit
+        for (int i = 0; i < tank.size(); i++) {
+            if (this.getBoundsInParent().intersects(tank.get(i).getBoundsInParent())) {
                 //lifespan = 300;
-                return tank[i];
+                return tank.get(i);
             }
         }
         return null;
