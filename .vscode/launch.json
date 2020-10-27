@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Server",
+            "request": "launch",
+            "mainClass": "src.com.company.src.com.company.Server",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServerTestClient",
+            "request": "launch",
+            "mainClass": "company.ServerTestClient",
+            "projectName": "Gruppe-306-PCSS_34b6929c"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "src.com.company.Main",
+            "projectName": "Gruppe-306-PCSS_ef11dab7"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Server",
+            "request": "launch",
+            "mainClass": "src.com.company.Server",
+            "projectName": "Gruppe-306-PCSS_ef11dab7"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServerTestClient",
+            "request": "launch",
+            "mainClass": "company.ServerTestClient",
+            "projectName": "Gruppe-306-PCSS_7226f30"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServerTestClient",
+            "request": "launch",
+            "mainClass": "ServerTestClient",
+            "projectName": "Gruppe-306-PCSS_7226f30"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServerTestClient",
+            "request": "launch",
+            "mainClass": "company.ServerTestClient",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServerTestClient",
+            "request": "launch",
+            "mainClass": "ServerTestClient",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "src.com.company.Main",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
