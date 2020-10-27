@@ -6,7 +6,7 @@ public class Tank extends Rectangle {
     boolean dead = false; //is not used for anything YET
     private int angle = 0; //variable that stores the tanks angle
     private int angleIncrease = 3;
-    private int moveSpeed = 3;
+    private int moveSpeed = 6;
     private int wallCollider = 50;
     final static int MAX_PROJECTILES = 10; //max amount of projectiles a player can have at the same time
     private Projectile[] projectiles = new Projectile[MAX_PROJECTILES]; //array with the tanks projectiles

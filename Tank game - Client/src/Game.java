@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -53,6 +54,7 @@ public class Game extends Application {
     int prevX = 300;
     int prevY = 300;
     int prevA = 0;
+    public long lastUpdate = 0;
 
 
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
@@ -69,45 +71,58 @@ public class Game extends Application {
         }
 
 
+
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
             @Override
             public void handle(long now) {
-                int X = (int) player.getTranslateX();
-                int Y = (int) player.getTranslateY();
-                int A = player.getAngle();
-                int ID = 0;
+                if(now - lastUpdate >= 20_000_000) {
 
-                int[] positionInfo = {X, Y, A};
 
-                if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) {
-                    try {
-                        output.writeUTF("INFO");
-                        for (int i = 0; i < positionInfo.length; i++) {
-                            output.writeInt(positionInfo[i]);
-                            //System.out.println(positionInfo[i]);
-                            prevX = X;
-                            prevY = Y;
-                            prevA = A;
+                    int X = (int) player.getTranslateX();
+                    int Y = (int) player.getTranslateY();
+                    int A = player.getAngle();
+                    int ID = 0;
+
+                    int[] positionInfo = {X, Y, A};
+
+                    if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) {
+                        try {
+                            output.writeUTF("INFO");
+                            for (int i = 0; i < positionInfo.length; i++) {
+                                output.writeInt(positionInfo[i]);
+                                //System.out.println(positionInfo[i]);
+                                prevX = X;
+                                prevY = Y;
+                                prevA = A;
+                            }
+                            output.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        output.flush();
+                    }
+
+                    try {
+                        int i = input.available();
+                        if (i == 0) {
+                        } else {
+                            String sendMessage = input.readUTF();
+                            if (sendMessage.equals("INFO")) {
+                                int x = input.readInt();
+                                player2.setTranslateX(x);
+                                System.out.print("X: " + x);
+                                int y = input.readInt();
+                                player2.setTranslateY(y);
+                                System.out.print("Y: " + y);
+                                int a = input.readInt();
+                                
+                                //player2.getTransforms().add(new Rotate(+a, player2.getX() + player2.getWidth() / 2, player2.getY() + player2.getHeight() / 2));
+                                System.out.print("A: " + a);
+                            }
+                        }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
 
-                try {
-                    String sendMessage = input.readUTF();
-                    if (sendMessage.equals("INFO")) {
-                        int x = input.readInt();
-                        System.out.print("X: " + x);
-                        int y = input.readInt();
-                        System.out.print("Y: " + y);
-                        int a = input.readInt();
-                        System.out.print("A: " + a);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
             /*
                 int[] array = new int[4];
@@ -121,7 +136,10 @@ public class Game extends Application {
              */
 
 
-                update();
+                    update();
+
+                    lastUpdate = now;
+                }
             }
         };
         timer.start(); //starts the animationtimer

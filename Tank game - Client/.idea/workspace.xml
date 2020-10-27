@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="852c60dd-ea8a-4497-bf36-2330b936adc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/ClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/ClientTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Projectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank game - Client/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank game - Client/Tank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,22 +182,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603717458457" />
-    <state width="723" height="146" key="GridCell.Tab.0.bottom" timestamp="1603717640727">
+    <state width="1493" height="146" key="GridCell.Tab.0.bottom" timestamp="1603721488155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="146" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603717640727" />
-    <state width="723" height="146" key="GridCell.Tab.0.center" timestamp="1603717640727">
+    <state width="1493" height="146" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603721488155" />
+    <state width="1493" height="146" key="GridCell.Tab.0.center" timestamp="1603721488154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="146" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603717640727" />
-    <state width="723" height="146" key="GridCell.Tab.0.left" timestamp="1603717640727">
+    <state width="1493" height="146" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603721488154" />
+    <state width="1493" height="146" key="GridCell.Tab.0.left" timestamp="1603721488154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="146" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603717640727" />
-    <state width="723" height="146" key="GridCell.Tab.0.right" timestamp="1603717640727">
+    <state width="1493" height="146" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603721488154" />
+    <state width="1493" height="146" key="GridCell.Tab.0.right" timestamp="1603721488155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="146" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603717640727" />
+    <state width="1493" height="146" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603721488155" />
     <state width="1493" height="257" key="GridCell.Tab.1.bottom" timestamp="1603268597124">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

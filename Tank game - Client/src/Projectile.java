@@ -3,7 +3,7 @@ import javafx.scene.shape.Circle;
 
 public class Projectile extends Circle {
 
-    final static int MAX_SPEED = 1;
+    final static int MAX_SPEED = 2;
     static final int RADIUS = 5;
 
     private Tank player;
