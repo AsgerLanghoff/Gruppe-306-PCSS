@@ -9,6 +9,7 @@ public class LobbySender {
     private static DataInputStream fromServer = null;
 
 
+
     int port = 8000;
     // ipv4 address for server
     String host = "192.168.43.236";
@@ -52,6 +53,28 @@ public class LobbySender {
         toServer.writeUTF(playerID);
     }
 
+    public void recieveGameInfo(){
+
+
+    }
+
+    public void readyGame(String subLobby) throws IOException {
+        toServer.writeUTF("playerReady");
+        toServer.writeUTF(subLobby);
+        boolean ready = false;
+        while(!ready) {
+            toServer.writeUTF("readyGame");
+            toServer.writeUTF(subLobby);
+            ready = fromServer.readBoolean();
+        }
+    }
+
+    public void updateLobby(String playerID, String lobbyName) throws IOException {
+        toServer.writeUTF("updateLobby");
+        toServer.writeUTF(lobbyName);
+        toServer.writeUTF(playerID);
+    }
+
 
     public void sendSubLobby(SubLobby lobby) throws IOException {
 
@@ -67,6 +90,20 @@ public class LobbySender {
         //}
     }
 
+
+    public List<String> updatePlayers(String lobbyName) throws IOException {
+        List<String> players = new ArrayList<>();
+        toServer.writeUTF("updatePlayers");
+        toServer.writeUTF(lobbyName);
+        int len = fromServer.readInt();
+
+        for(int i = 0; i<len; i++){
+            String newPlayer = fromServer.readUTF();
+            players.add(newPlayer);
+        }
+
+        return players;
+    }
 
 
     public List<SubLobby> requestLobbyList() throws IOException {
@@ -94,14 +131,6 @@ public class LobbySender {
 
 
 
-
-
-
-
-
-
-
-
     public static DataInputStream getFromServer() {
         return fromServer;
     }
@@ -112,6 +141,9 @@ public class LobbySender {
 
 
 }
+
+
+
 
 
 
