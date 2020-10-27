@@ -189,7 +189,7 @@ public class Game extends Application {
 
 
         }
-/*
+
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
             player.rotateLeft();
             if (player.isColliding(maps)) {
@@ -217,8 +217,6 @@ public class Game extends Application {
 
             }
         }
-        */
-
     }
 
 
