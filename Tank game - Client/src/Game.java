@@ -36,7 +36,7 @@ public class Game extends Application {
 
     int wallWidth = 10;
 
-    String playerID;
+    String playerID = "1";
 
     private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
@@ -117,7 +117,7 @@ public class Game extends Application {
                                 System.out.print("A: " + a);
                             }
                             if (sendMessage.equals("BULLET")) {
-                                player2.shoot();
+                                spawnProjectile(player2);
                                 System.out.println("BUELLELETETETET§!!!!!!!");
                             }
                         }
@@ -153,38 +153,41 @@ public class Game extends Application {
 
     public void update() {//function where everything that happens every frame is called
 
-
-        //moves ALL bullets on the map
-        for (int i = 0; i < projectiles.length; i++) {
-            if (projectiles[i] != null) { //only does this function if there are bullets in the array
-                for (int j = 0; j < maps.length; j++) {
-                    projectiles[i].moveBullet(maps[j]);//moves bullets
-                }
-
-                //removes a tank if hit
-                if (projectiles[i].collision(tanks) != null) {//only does this if there is a hit tank
-
-                    Tank tank = projectiles[i].collision(tanks);
-                    if (tank.getDead() == false) {
-                        root.getChildren().remove(tank);
-                        root.getChildren().remove(projectiles[i]);//removes the bullet visually
-                        projectiles[i] = null;//removes the bullets from the array
+        for (int t = 0; t < tanks.length; t++) {
+            //moves ALL bullets on the map
+            for (int i = 0; i < projectiles.length; i++) {
+                if (tanks[t].getProjectiles()[i] != null) { //only does this function if there are bullets in the array
+                    for (int j = 0; j < maps.length; j++) {
+                        tanks[t].getProjectiles()[i].moveBullet(maps[j]);//moves bullets
                     }
-                    tank.setDead();
-                    //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
+
+                    //removes a tank if hit
+                    if (tanks[t].getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
+
+                        Tank tank = tanks[t].getProjectiles()[i].collision(tanks);
+                        if (tank.getDead() == false) {
+                            root.getChildren().remove(tank);
+                            root.getChildren().remove(tanks[t].getProjectiles()[i]);//removes the bullet visually
+                            tanks[t].getProjectiles()[i] = null;//removes the bullets from the array
+                        }
+                        tank.setDead();
+                        //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
 
 
+                    }
                 }
             }
-        }
 
-        //checks the lifespan and removes bullet if it is over a threshold
-        int threshold = 3000; //threshold - the bullets are removed after 300 frames
-        for (int i = 0; i < projectiles.length; i++) {
-            if (projectiles[i] != null && projectiles[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
-                root.getChildren().remove(projectiles[i]); //removes the projectile child
-                projectiles[i] = null; //removes projectile from array.
+            //checks the lifespan and removes bullet if it is over a threshold
+            int threshold = 3000; //threshold - the bullets are removed after 300 frames
+            for (int i = 0; i < tanks[t].getProjectiles().length; i++) {
+                if (tanks[t].getProjectiles()[i] != null && tanks[t].getProjectiles()[i].getLifespan() >= threshold) { //only does this if there are bullets on the map and if one have been alive for 300 frames
+                    root.getChildren().remove(tanks[t].getProjectiles()[i]); //removes the projectile child
+                    tanks[t].getProjectiles()[i] = null; //removes projectile from array.
+                }
             }
+
+
         }
 
         if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
@@ -219,10 +222,10 @@ public class Game extends Application {
 
     public void spawnProjectile(Tank tank) {
         Projectile p = tank.shoot();
-        projectiles = tank.getProjectiles();
+        //projectiles = tank.getProjectiles();
         if (p != null) {
             root.getChildren().add(p);
-            if (tank.getPlayerID().equals(this.playerID)) {
+            if (tank.getPlayerID().equals(player.getPlayerID())) {
                 try {
                     output.writeUTF("BULLET");
                 } catch (IOException ex) {
