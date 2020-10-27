@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/.idea/src.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/GameStartChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tank game - Client/src/Tank game - Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Gruppe-306-PCSS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gruppe-306-PCSS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Lobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/LobbySender.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/LobbySender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/SubLobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/SubLobby.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Lobby.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/Lobby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/LobbySender.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Tank game - Client/LobbySender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/LobbySender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/LobbySender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +21,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="client" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1idpEcF8xlsDiH3EO1PIDGjjMK9" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -57,6 +47,13 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
   <component name="RunManager" selected="Application.Lobby">
+    <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientTest" />
+      <module name="Gruppe-306-PCSS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Lobby" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lobby" />
       <module name="Gruppe-306-PCSS" />
@@ -81,13 +78,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.test5" />
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Lobby" />
+      <item itemvalue="Application.ClientTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Lobby" />
+        <item itemvalue="Application.ClientTest" />
+        <item itemvalue="Application.Lobby" />
         <item itemvalue="Application.Lobby" />
       </list>
     </recent_temporary>
@@ -115,20 +127,39 @@
       <workItem from="1603706449728" duration="174000" />
       <workItem from="1603706837050" duration="4546000" />
     </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1603800135439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603800135439</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit">
+      <created>1603803783896</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603803783896</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="249" y="0" key="#Project_Structure" timestamp="1603706469784">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1603706469784" />
-    <state x="223" y="68" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603706620989">
+    <state x="223" y="63" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603800286158">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603706620989" />
+    <state x="223" y="63" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603800286158" />
     <state x="539" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602503533698">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -141,30 +172,50 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1602502863500" />
+    <state x="353" y="0" key="CommitChangelistDialog2" timestamp="1603805423104">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="353" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603805423104" />
     <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1602503809569">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602503809569" />
-    <state width="1493" height="103" key="GridCell.Tab.0.bottom" timestamp="1603715120920">
+    <state width="1493" height="254" key="GridCell.Tab.0.bottom" timestamp="1603804901434">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="103" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
-    <state width="1493" height="103" key="GridCell.Tab.0.center" timestamp="1603715120920">
+    <state width="1493" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
+    <state width="1493" height="254" key="GridCell.Tab.0.center" timestamp="1603804901434">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="103" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
-    <state width="1493" height="103" key="GridCell.Tab.0.left" timestamp="1603715120920">
+    <state width="1493" height="254" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
+    <state width="1493" height="254" key="GridCell.Tab.0.left" timestamp="1603804901434">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="103" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
-    <state width="1493" height="103" key="GridCell.Tab.0.right" timestamp="1603715120920">
+    <state width="1493" height="254" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
+    <state width="1493" height="254" key="GridCell.Tab.0.right" timestamp="1603804901434">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="103" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
+    <state width="1493" height="254" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1603805353807">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1603805353807" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1603706590692">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603706590692" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603803806704">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603803806704" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603802179269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603802179269" />
+    <state x="519" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603805344779">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="519" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1603805344779" />
     <state x="209" y="73" key="new project wizard" timestamp="1603268217753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
