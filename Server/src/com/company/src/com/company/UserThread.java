@@ -1,4 +1,4 @@
-package src.com.company.src.com.company;
+package com.company;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -104,6 +104,9 @@ public class UserThread extends Thread {
                     server.sendToAllInts(x, this);
                     server.sendToAllInts(y, this);
                     server.sendToAllInts(a, this);
+				}
+				if(clientMessage.equals("BULLET")){
+					server.sendToAll("BULLET", this);
 				}
 			}
 
