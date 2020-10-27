@@ -115,14 +115,17 @@ public class Game extends Application {
                                 System.out.print("Y: " + y);
                                 int a = input.readInt();
                                 player2.setToAngle(a);
-                                
-                                //player2.getTransforms().add(new Rotate(+a, player2.getX() + player2.getWidth() / 2, player2.getY() + player2.getHeight() / 2));
                                 System.out.print("A: " + a);
+                            }
+                            if(sendMessage.equals("BULLET")){
+                                player2.shoot();
                             }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+
 
 
             /*
@@ -263,7 +266,13 @@ public class Game extends Application {
                     projectiles = player.getProjectiles();
                     if (p != null) {
                         root.getChildren().add(p);
+                        try {
+                            output.writeUTF("BULLET");
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     }
+
                     break;
             }
 
