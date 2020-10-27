@@ -1,4 +1,4 @@
-package com.company;
+package src.com.company.src.com.company;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -65,7 +65,6 @@ public class Server extends Thread {
 				userThread.sendMessage(message);
 		}
 	}
-
 	public void sendToAllInts(int messageint, UserThread ut){
 		for(UserThread userThread : users){
 			if(userThread != ut){
@@ -73,7 +72,6 @@ public class Server extends Thread {
 			}
 		}
 	}
-
 
 	public ServerSocket getServerSocket() {
 		return serverSocket;

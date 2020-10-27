@@ -1,4 +1,4 @@
-package com.company;
+package src.com.company.src.com.company;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,6 +12,7 @@ public class UserThread extends Thread {
     private Server server;
 	private Socket socket;
 	private String playerID;
+	boolean gameState = false;
 	private DataOutputStream output;
 	private DataInputStream input;
     public static Database database = new Database();
@@ -28,10 +29,10 @@ public class UserThread extends Thread {
 			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
 			playerID = input.readUTF();
-			boolean gameState = false;
 			System.out.println(playerID + " joined the server");
 			database.addPlayer(playerID);
 			server.sendToAll(playerID + " Joined the server!" ,this);
+
 
 			while(!gameState){
 				String commandType = input.readUTF();
@@ -76,7 +77,6 @@ public class UserThread extends Thread {
 							if(database.getLobbies().get(i).getReady()==database.getLobbies().get(i).getPlayers().size()){
 								output.writeBoolean(true);
 								gameState = true;
-
 							}
 							else {
 								output.writeBoolean(false);
@@ -109,7 +109,6 @@ public class UserThread extends Thread {
 					server.sendToAll("BULLET", this);
 				}
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -125,6 +124,10 @@ public class UserThread extends Thread {
 		// for(int i = 0; i<len; i++){
 		// 	players.add(input.readUTF());
 		// }
+
+	}
+
+	public void readyCheck() throws IOException{
 
 	}
 
@@ -178,8 +181,7 @@ public class UserThread extends Thread {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
+    }
 	public void sendInt(int messageInt){
 		try {
 			output.writeInt(messageInt);
