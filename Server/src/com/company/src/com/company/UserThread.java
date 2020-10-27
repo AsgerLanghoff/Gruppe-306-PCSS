@@ -28,15 +28,22 @@ public class UserThread extends Thread {
 			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
 			playerID = input.readUTF();
+			boolean gameState = false;
 			System.out.println(playerID + " joined the server");
 			database.addPlayer(playerID);
+			server.sendToAll(playerID + " Joined the server!" ,this);
 
-			while(true){
+			while(!gameState){
 				String commandType = input.readUTF();
 				if(commandType.equals("sendSubLobby")){  // creating a lobby on the server
 					System.out.println(playerID + "creating lobby ");
 					recieveSubLobby();
 					System.out.println(playerID + "'s lobby created");
+				}
+				if(commandType.equals("quit")){
+					server.sendToAll(playerID + " left the server ", this);
+					server.removeUser(this, playerID);
+					socket.close();
 				}
 				if(commandType.equals("requestLobbyList")){ //requesting the lobbylist
 					System.out.println("Sending lobby list to " + playerID);
@@ -68,6 +75,8 @@ public class UserThread extends Thread {
 						if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
 							if(database.getLobbies().get(i).getReady()==database.getLobbies().get(i).getPlayers().size()){
 								output.writeBoolean(true);
+								gameState = true;
+
 							}
 							else {
 								output.writeBoolean(false);
@@ -79,6 +88,23 @@ public class UserThread extends Thread {
 
 
 
+			}
+
+			while(gameState){
+				String clientMessage = input.readUTF();
+				
+				if(clientMessage.equals("INFO")){
+					int x = input.readInt();
+                    System.out.println("X: "+x);
+                    int y = input.readInt();
+                    System.out.println("Y: "+y);
+                    int a = input.readInt();
+                    System.out.println("A: "+a);
+                    server.sendToAll("INFO", this);
+                    server.sendToAllInts(x, this);
+                    server.sendToAllInts(y, this);
+                    server.sendToAllInts(a, this);
+				}
 			}
 
 		} catch (IOException e) {
@@ -96,10 +122,6 @@ public class UserThread extends Thread {
 		// for(int i = 0; i<len; i++){
 		// 	players.add(input.readUTF());
 		// }
-
-	}
-
-	public void readyCheck() throws IOException{
 
 	}
 
@@ -153,5 +175,15 @@ public class UserThread extends Thread {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-    }
+	}
+	
+	public void sendInt(int messageInt){
+		try {
+			output.writeInt(messageInt);
+			output.flush();
+		} catch (Exception e) {
+			//TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 }

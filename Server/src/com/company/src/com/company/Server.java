@@ -66,6 +66,15 @@ public class Server extends Thread {
 		}
 	}
 
+	public void sendToAllInts(int messageint, UserThread ut){
+		for(UserThread userThread : users){
+			if(userThread != ut){
+				userThread.sendInt(messageint);
+			}
+		}
+	}
+
+
 	public ServerSocket getServerSocket() {
 		return serverSocket;
 	}
