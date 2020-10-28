@@ -31,8 +31,6 @@ public class UserThread extends Thread {
             playerID = input.readUTF();
             System.out.println(playerID + " joined the server");
             database.addPlayer(playerID);
-            server.sendToAll(playerID + " Joined the server!" ,this);
-
 
             while(!gameState){
                 String commandType = input.readUTF();
@@ -76,7 +74,6 @@ public class UserThread extends Thread {
                         if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
                             if(database.getLobbies().get(i).getReady()==database.getLobbies().get(i).getPlayers().size()){
                                 output.writeBoolean(true);
-                                gameState = true;
                             }
                             else {
                                 output.writeBoolean(false);
@@ -84,6 +81,9 @@ public class UserThread extends Thread {
                         }
                     }
 
+                }
+                if(commandType.equals("startGame")){
+                    gameState = true;
                 }
 
 
@@ -133,12 +133,15 @@ public class UserThread extends Thread {
 
     public void updateClientLobby() throws IOException{
         String uLobbyName = input.readUTF();
+        System.out.println(uLobbyName);// lobby navn
         for ( int i = 0; i< database.getLobbies().size(); i++){
             if( database.getLobbies().get(i).getLobbyName().equals(uLobbyName)){
                 int len = database.getLobbies().get(i).getPlayers().size();
+                System.out.println(len); // længde af playerlist
                 output.writeInt(len);
                 for(int j = 0; j< len; j++){
                     output.writeUTF(database.getLobbies().get(i).getPlayers().get(j));
+                    System.out.println(database.getLobbies().get(i).getPlayers().get(j)); //playerliste
                 }
 
             }
