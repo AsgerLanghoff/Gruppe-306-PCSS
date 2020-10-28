@@ -58,6 +58,10 @@ public class LobbySender {
 
     }
 
+    public void startGame() throws IOException {
+        toServer.writeUTF("startGame");
+    }
+
     public void readyGame(String subLobby) throws IOException {
         toServer.writeUTF("playerReady");
         toServer.writeUTF(subLobby);
@@ -111,7 +115,7 @@ public class LobbySender {
         toServer.writeUTF("requestLobbyList");
 
         int numOfLobbies = fromServer.readInt();
-        System.out.println(numOfLobbies);
+        System.out.println(numOfLobbies + " num of lobbies");
         for(int i = 0; i< numOfLobbies; i++) {
             String lobbyName = fromServer.readUTF();
             String host = fromServer.readUTF();
@@ -120,6 +124,7 @@ public class LobbySender {
             for (int j = 0; j < len; j++) {
                 players.add(fromServer.readUTF());
             }
+
             System.out.println("Recieved sublobby: "+lobbyName);
             SubLobby newLobby = new SubLobby(lobbyName, host);
             newLobby.setPlayers(players);

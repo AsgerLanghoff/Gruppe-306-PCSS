@@ -41,6 +41,8 @@ public class Game extends Application {
     int[] startX = {100, 100, 300, 300}; //start x-coordinates
     int[] startY = {100, 300, 100, 300}; //start y-coordinates
 
+
+
     //private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
     //private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
 
@@ -104,6 +106,7 @@ public class Game extends Application {
                         }
                     }
 
+
                     try {
                         int i = input.available();
                         if (i == 0) {
@@ -130,21 +133,6 @@ public class Game extends Application {
                         e.printStackTrace();
                     }
 
-
-
-
-            /*
-                int[] array = new int[4];
-                try {
-                    for (int i = 0; i < 4; i++) {
-                        array[i] = input.readInt();
-                    }
-                } catch (IOException e) {
-                }
-
-             */
-
-
                     update();
 
                     lastUpdate = now;
@@ -160,7 +148,7 @@ public class Game extends Application {
 
         for (int t = 0; t < tanks.size(); t++) {
             //moves ALL bullets on the map
-            for (int i = 0; i < projectiles.length; i++) {
+            for (int i = 0; i < tanks.get(t).getProjectiles().length; i++) {
                 if (tanks.get(t).getProjectiles()[i] != null) { //only does this function if there are bullets in the array
                     for (int j = 0; j < maps.length; j++) {
                         tanks.get(t).getProjectiles()[i].moveBullet(maps[j]);//moves bullets
@@ -256,6 +244,8 @@ public class Game extends Application {
             }
         }
 
+        Tank myTank = tanks.get(playerIndex);
+
 
 
 
@@ -294,20 +284,8 @@ public class Game extends Application {
                     backward = true;
                     break;
                 case SPACE:
-                    spawnProjectile(tanks.get(playerIndex));
-                   /* Projectile p = player.shoot();
-                    projectiles = player.getProjectiles();
-                    if (p != null) {
-                        root.getChildren().add(p);
-                        try {
-                            output.writeUTF("BULLET");
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-
-                    */
-
+                    //spawnProjectile(tanks.get(playerIndex));
+                    spawnProjectile(myTank);
                     break;
             }
 

@@ -73,10 +73,7 @@ public class Lobby{
                 subLobbies.get(i).addToPlayers(this.playerID);
             }
         }
-
         sender.updateLobby(this.playerID, lobbyName);
-
-
     }
 
 
@@ -91,14 +88,14 @@ public class Lobby{
 
 
     public void startGame(String lobby) throws IOException {
-        //Game game = new Game(playerID);
-
 
         this.players = sender.updatePlayers(this.currentLobby);
-
+        sender.startGame();
         String[] arguments = new String[]{playerID};
         Game.main(arguments);
     }
+
+
 
     void removeFromLobby(String lobbyName) {
         this.isHost = false;
@@ -148,7 +145,7 @@ public class Lobby{
             }
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "lol");
             System.out.println("Unknown input, try again");
             hostOptions(lobbyName);
         }
@@ -246,7 +243,6 @@ public class Lobby{
 
 
     public static void main(String[] args) throws IOException {
-
         Lobby l = new Lobby();
     }
 }
