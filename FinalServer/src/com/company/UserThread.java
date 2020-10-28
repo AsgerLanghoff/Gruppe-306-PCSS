@@ -94,6 +94,8 @@ public class UserThread extends Thread {
                 String clientMessage = input.readUTF();
 
                 if(clientMessage.equals("INFO")){
+                    int index = input.readInt();
+                    System.out.println("Index: "+index);
                     int x = input.readInt();
                     System.out.println("X: "+x);
                     int y = input.readInt();
@@ -101,6 +103,7 @@ public class UserThread extends Thread {
                     int a = input.readInt();
                     System.out.println("A: "+a);
                     server.sendToAll("INFO", this);
+                    server.sendToAllInts(index, this);
                     server.sendToAllInts(x, this);
                     server.sendToAllInts(y, this);
                     server.sendToAllInts(a, this);
