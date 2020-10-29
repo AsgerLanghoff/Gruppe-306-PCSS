@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="" />
+    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/GameStartChecker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/LobbySender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/META-INF/Gruppe-306-PCSS.kotlin_module" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,8 +33,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FinalServer" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
@@ -91,6 +98,8 @@
       <workItem from="1603706449728" duration="174000" />
       <workItem from="1603706837050" duration="4546000" />
       <workItem from="1603802757074" duration="1854000" />
+      <workItem from="1603973640644" duration="87000" />
+      <workItem from="1603973740904" duration="22000" />
     </task>
     <servers />
   </component>
@@ -118,10 +127,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1603803557667" />
-    <state x="432" y="131" key="FileChooserDialogImpl" timestamp="1603803340097">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="432" y="133" key="FileChooserDialogImpl" timestamp="1603973761324">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="432" y="131" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603803340097" />
+    <state x="432" y="133" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1603973761324" />
     <state width="1493" height="103" key="GridCell.Tab.0.bottom" timestamp="1603715120920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -138,10 +148,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="103" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1603803212179">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1603973699046">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603803212179" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1603973699046" />
     <state x="209" y="68" key="new project wizard" timestamp="1603805626976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -150,5 +161,55 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603104575171" />
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>
