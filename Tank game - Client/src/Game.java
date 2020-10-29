@@ -79,12 +79,8 @@ public class Game extends Application {
             @Override
             public void handle(long now) {
                 if (now - lastUpdate >= 20_000_000) { //sets the frame rate
-
-
                     sendToServer();
                     receiveFromServer();
-
-
                     update();
                     lastUpdate = now;
                 }
@@ -106,7 +102,8 @@ public class Game extends Application {
                 output.writeUTF("INFO"); //sends INFO to the server, so
                 output.writeInt(playerIndex);
                 for (int i = 0; i < positionInfo.length; i++) {
-                    output.writeInt(positionInfo[i]);
+                    output.writeInt(positionInfo[i]); //sends the array in a for loop
+                    //updates the previous positions and angles
                     prevX = X;
                     prevY = Y;
                     prevA = A;
@@ -119,13 +116,13 @@ public class Game extends Application {
 
     }
 
-    public void receiveFromServer() {
+    public void receiveFromServer() { //receives all the information from the server
         try {
-            int i = input.available();
-            if (i == 0) {
-            } else {
-                String sendMessage = input.readUTF();
-                int serverIndex = input.readInt();
+            int i = input.available(); //checks if there is any input from the server
+            if (i == 0) { //if there is nothing do nothing
+            } else { //if there is something - do something
+                String sendMessage = input.readUTF(); //saves a string from the server as sendMessage - it is either INFO or BULLET
+                int serverIndex = input.readInt(); //gets the index of the player we are receiving from
                 if (sendMessage.equals("INFO")) {
                     int x = input.readInt();
                     tanks.get(serverIndex).setTranslateX(x);
