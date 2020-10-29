@@ -109,7 +109,9 @@ public class UserThread extends Thread {
                     server.sendToAllInts(a, this);
                 }
                 if(clientMessage.equals("BULLET")){
+                    int playerID = input.readInt();
                     server.sendToAll("BULLET", this);
+                    server.sendToAllInts(playerID, this);
                 }
             }
         } catch (IOException e) {
