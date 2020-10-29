@@ -184,11 +184,15 @@ public class Game extends Application {
                     //removes a tank if hit
                     if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
                         Tank tank = tanks.get(t).getProjectiles()[i].collision(tanks);
-                        if (tank == tanks.get(playerIndex)) {
+
                             if (tank.getDead() == false) {
-                                root.getChildren().remove(tank);
                                 root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
                                 tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
+
+                                if (tank == tanks.get(playerIndex)) {
+                                root.getChildren().remove(tank);
+
+
                                 //tanks.get(t).setDead();
                                 try {
 
