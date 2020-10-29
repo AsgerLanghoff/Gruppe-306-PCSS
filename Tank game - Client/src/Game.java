@@ -4,7 +4,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -16,8 +15,7 @@ public class Game extends Application {
     DataInputStream input = LobbySender.getFromServer();
     DataOutputStream output = LobbySender.getToServer();
 
-
-    Projectile[] projectiles;
+    //Projectile[] projectiles; skal slettes
 
 
     //movement booleans
@@ -35,6 +33,7 @@ public class Game extends Application {
 
     int wallWidth = 10;
 
+    //variables where the ID and index are saved when received from lobby
     String playerID;
     int playerIndex;
 
@@ -42,12 +41,7 @@ public class Game extends Application {
     int[] startY = {100, 300, 100, 300}; //start y-coordinates
 
 
-
-    //private Tank player = new Tank(300, 300, 70, 40, playerID, Color.BLUE);
-    //private Tank player2 = new Tank(100, 100, 70, 40, "2", Color.BISQUE);
-
-    //Tank[] tanks = {player, player2};//puts the tanks into an array
-    List<Tank> tanks = new ArrayList<>();
+    List<Tank> tanks = new ArrayList<>(); //list of tanks filled in the Start function with the players from the lobby
 
     //map
     private Map top = new Map(0, 0, 1200, wallWidth);
@@ -57,22 +51,26 @@ public class Game extends Application {
     private Map map1 = new Map(200, 100, width / 2, wallWidth);
     Map[] maps = {top, bund, venstre, hoejre, map1};
 
-    int prevX = 300;
-    int prevY = 300;
+
+    //previous coordinates that are updated every time the coordinates changes
+    int prevX = 0;
+    int prevY = 0;
     int prevA = 0;
+
+    //variable for the frame rate
     public long lastUpdate = 0;
 
 
     private Parent createContent() { //creates the "draw" function - creates a Parent and returns it
         root.setPrefSize(width, height); //sets width and height of window
 
-        for (int i = 0; i < tanks.size(); i++) { //makes the tanks
+        for (int i = 0; i < tanks.size(); i++) { //puts the tanks from the tank-list and puts them in the frame
             if (tanks.get(i) != null) {
                 root.getChildren().add(tanks.get(i));
             }
         }
 
-        for (int i = 0; i < maps.length; i++) {
+        for (int i = 0; i < maps.length; i++) { //puts maps on in the frame
             root.getChildren().add(maps[i]);
         }
 
@@ -80,67 +78,73 @@ public class Game extends Application {
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
             @Override
             public void handle(long now) {
-                if (now - lastUpdate >= 20_000_000) {
+                if (now - lastUpdate >= 20_000_000) { //sets the frame rate
 
 
-                    int X = (int) tanks.get(playerIndex).getTranslateX();
-                    int Y = (int) tanks.get(playerIndex).getTranslateY();
-                    int A = tanks.get(playerIndex).getAngle();
+                    sendToServer();
+                    receiveFromServer();
 
-                    int[] positionInfo = {X, Y, A};
-
-                    if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) {
-                        try {
-                            output.writeUTF("INFO");
-                            output.writeInt(playerIndex);
-                            for (int i = 0; i < positionInfo.length; i++) {
-                                output.writeInt(positionInfo[i]);
-                                //System.out.println(positionInfo[i]);
-                                prevX = X;
-                                prevY = Y;
-                                prevA = A;
-                            }
-                            output.flush();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-
-                    try {
-                        int i = input.available();
-                        if (i == 0) {
-                        } else {
-                            String sendMessage = input.readUTF();
-                            int serverIndex = input.readInt();
-                            if (sendMessage.equals("INFO")) {
-                                int x = input.readInt();
-                                tanks.get(serverIndex).setTranslateX(x);
-                                System.out.println("X: " + x);
-                                int y = input.readInt();
-                                tanks.get(serverIndex).setTranslateY(y);
-                                System.out.println("Y: " + y);
-                                int a = input.readInt();
-                                tanks.get(serverIndex).setToAngle(a);
-                                System.out.println("A: " + a);
-                            }
-                            if (sendMessage.equals("BULLET")) {
-                                spawnProjectile(tanks.get(serverIndex));
-                                System.out.println("BUELLELETETETET§!!!!!!!");
-                            }
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
                     update();
-
                     lastUpdate = now;
                 }
             }
         };
-        timer.start(); //starts the animationtimer
+        timer.start(); //starts the animation timer
         return root; //returns the root
+    }
+
+    public void sendToServer() { //sends all the information (x-pos, y-pos and angle) to the server
+        int X = (int) tanks.get(playerIndex).getTranslateX(); //my x-coordinates
+        int Y = (int) tanks.get(playerIndex).getTranslateY(); //my y-coordinates
+        int A = tanks.get(playerIndex).getAngle(); //my angle
+
+        int[] positionInfo = {X, Y, A}; //put into array, because we tried to send an array which did not work
+
+        if (positionInfo[0] != prevX || positionInfo[1] != prevY || positionInfo[2] != prevA) { //checks if anything has changed - we don't send anything if nothing changes
+            try {
+                output.writeUTF("INFO"); //sends INFO to the server, so
+                output.writeInt(playerIndex);
+                for (int i = 0; i < positionInfo.length; i++) {
+                    output.writeInt(positionInfo[i]);
+                    prevX = X;
+                    prevY = Y;
+                    prevA = A;
+                }
+                output.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void receiveFromServer() {
+        try {
+            int i = input.available();
+            if (i == 0) {
+            } else {
+                String sendMessage = input.readUTF();
+                int serverIndex = input.readInt();
+                if (sendMessage.equals("INFO")) {
+                    int x = input.readInt();
+                    tanks.get(serverIndex).setTranslateX(x);
+                    System.out.println("X: " + x);
+                    int y = input.readInt();
+                    tanks.get(serverIndex).setTranslateY(y);
+                    System.out.println("Y: " + y);
+                    int a = input.readInt();
+                    tanks.get(serverIndex).setToAngle(a);
+                    System.out.println("A: " + a);
+                }
+                if (sendMessage.equals("BULLET")) {
+                    spawnProjectile(tanks.get(serverIndex));
+                    System.out.println("BUELLELETETETET§!!!!!!!");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -182,7 +186,9 @@ public class Game extends Application {
 
         }
 
-        if (left) { //moves if the boolean is true, this is smoother than having the move in the start function
+
+        //moves if the boolean is true, this is smoother than having the move in the start function
+        if (left) {
             tanks.get(playerIndex).rotateLeft();
             if (tanks.get(playerIndex).isColliding(maps)) {
                 tanks.get(playerIndex).rotateRight();
@@ -214,7 +220,6 @@ public class Game extends Application {
 
     public void spawnProjectile(Tank tank) {
         Projectile p = tank.shoot();
-        //projectiles = tank.getProjectiles();
         if (p != null) {
             root.getChildren().add(p);
             if (tank.getPlayerID().equals(tanks.get(playerIndex).getPlayerID())) {
@@ -231,23 +236,25 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(createContent()); //creates a scene with the root createContent as input
+        //creates a scene with the root createContent as input
         //projectiles = player.getProjectiles(); //initializes the projectile array
-        Parameters para = getParameters();
+        Parameters para = getParameters(); //gets the parameters (playerID) when the lobby calls the game main
+        System.out.println("para: " + para);
         List<String> list = para.getRaw();
         playerID = list.get(0);
+        System.out.println("pID: " + playerID);
 
-        for(int i = 0; i < Lobby.players.size(); i++){
-            tanks.add(new Tank(startX[i], startY[i], 70, 40, Lobby.players.get(i), Color.GOLD));
-            if(playerID.equals(Lobby.players.get(i))){
-                playerIndex = i;
+        //initializing the tanks from the array from the lobby
+        Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.YELLOW}; //possible colors
+        for (int i = 0; i < Lobby.players.size(); i++) {
+            tanks.add(new Tank(startX[i], startY[i], 70, 40, Lobby.players.get(i), colors[i]));
+            if (playerID.equals(Lobby.players.get(i))) {//check what playerID you got
+                playerIndex = i; //saves what playerID you got
+                System.out.println("playerIndex: " + playerIndex);
             }
         }
 
-        Tank myTank = tanks.get(playerIndex);
-
-
-
+        Scene scene = new Scene(createContent());
 
 
         //sets booleans to false if key is released
@@ -285,15 +292,13 @@ public class Game extends Application {
                     break;
                 case SPACE:
                     //spawnProjectile(tanks.get(playerIndex));
-                    spawnProjectile(myTank);
+                    spawnProjectile(tanks.get(playerIndex));
                     break;
             }
-
         });
         stage.setScene(scene);//creates a stage using the scene that uses the root
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);
