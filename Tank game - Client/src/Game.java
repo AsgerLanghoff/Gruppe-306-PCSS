@@ -157,8 +157,6 @@ public class Game extends Application {
                     System.out.println("serverdead");
                     if (tanks.get(serverIndex).getDead() == false) {
                         root.getChildren().remove(tanks.get(serverIndex));
-                        root.getChildren().remove(tanks.get(serverIndex).getProjectiles()[i]);//removes the bullet visually
-                        tanks.get(serverIndex).getProjectiles()[i] = null;//removes the bullets from the array
                     }
                     tanks.get(serverIndex).setDead();
                     //tanks.get(serverIndex).setDead();
@@ -184,18 +182,13 @@ public class Game extends Application {
                     //removes a tank if hit
                     if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
                         Tank tank = tanks.get(t).getProjectiles()[i].collision(tanks);
-
+                        if (tank == tanks.get(playerIndex)) {
                             if (tank.getDead() == false) {
-                                root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
-                                tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
-
-                                if (tank == tanks.get(playerIndex)) {
+                                //root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
+                                //tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
                                 root.getChildren().remove(tank);
-
-
                                 //tanks.get(t).setDead();
                                 try {
-
                                     output.writeUTF("DEAD");
                                     output.writeInt(playerIndex);
                                     System.out.println("dead!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -205,7 +198,6 @@ public class Game extends Application {
                                 }
                             }
                             tank.setDead();
-
                         }
                         //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
                     }
@@ -220,8 +212,6 @@ public class Game extends Application {
                     tanks.get(t).getProjectiles()[i] = null; //removes projectile from array.
                 }
             }
-
-
         }
 
 
