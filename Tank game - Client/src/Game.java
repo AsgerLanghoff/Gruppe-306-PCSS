@@ -103,6 +103,7 @@ public class Game extends Application {
                 output.writeInt(playerIndex);
                 for (int i = 0; i < positionInfo.length; i++) {
                     output.writeInt(positionInfo[i]); //sends the array in a for loop
+
                     //updates the previous positions and angles
                     prevX = X;
                     prevY = Y;
@@ -113,6 +114,18 @@ public class Game extends Application {
                 e.printStackTrace();
             }
         }
+
+        /*try{
+            if(tanks.get(playerIndex).getDead() == true) {
+                System.out.println("dead");
+                output.writeInt(playerIndex);
+                output.writeUTF("DEAD");
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+         */
 
     }
 
@@ -138,6 +151,11 @@ public class Game extends Application {
                     spawnProjectile(tanks.get(serverIndex));
                     System.out.println("BUELLELETETETET§!!!!!!!");
                 }
+                if(sendMessage.equals("DEAD")){
+                    tanks.get(serverIndex).setDead();
+                    System.out.println("serverdead");
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -163,8 +181,18 @@ public class Game extends Application {
                             root.getChildren().remove(tank);
                             root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
                             tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
+                            //tanks.get(t).setDead();
                         }
-                        tank.setDead();
+                        tanks.get(t).setDead();
+                        try{
+                            if(tanks.get(playerIndex).getDead() == true) {
+                                output.writeInt(playerIndex);
+                                output.writeUTF("DEAD");
+                                System.out.println("dead!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            }
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
 
                         //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
                     }

@@ -88,7 +88,6 @@ public static DataInputStream input;
                 IOException ex) {
             System.out.println(ex.toString() + '\n');
         }
-
     }
 
 
