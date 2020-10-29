@@ -147,13 +147,15 @@ public class Game extends Application {
                     tanks.get(serverIndex).setToAngle(a);
                     System.out.println("A: " + a);
                 }
+
                 if (sendMessage.equals("BULLET")) {
                     spawnProjectile(tanks.get(serverIndex));
                     System.out.println("BUELLELETETETET§!!!!!!!");
                 }
+
                 if(sendMessage.equals("DEAD")){
-                    tanks.get(serverIndex).setDead();
                     System.out.println("serverdead");
+                    tanks.get(serverIndex).setDead();
                 }
 
             }
@@ -175,24 +177,24 @@ public class Game extends Application {
 
                     //removes a tank if hit
                     if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
-
                         Tank tank = tanks.get(t).getProjectiles()[i].collision(tanks);
                         if (tank.getDead() == false) {
                             root.getChildren().remove(tank);
                             root.getChildren().remove(tanks.get(t).getProjectiles()[i]);//removes the bullet visually
                             tanks.get(t).getProjectiles()[i] = null;//removes the bullets from the array
                             //tanks.get(t).setDead();
-                        }
-                        tanks.get(t).setDead();
-                        try{
-                            if(tanks.get(playerIndex).getDead() == true) {
-                                output.writeInt(playerIndex);
+                            try{
+
                                 output.writeUTF("DEAD");
+                                output.writeInt(playerIndex);
                                 System.out.println("dead!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+                            }catch(IOException e){
+                                e.printStackTrace();
                             }
-                        }catch(IOException e){
-                            e.printStackTrace();
                         }
+                        tank.setDead();
+
 
                         //root.getChildren().remove(projectiles[i].collision(tanks));//removes the tank visually
                     }
