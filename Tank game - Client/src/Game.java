@@ -37,8 +37,8 @@ public class Game extends Application {
     String playerID;
     int playerIndex;
 
-    int[] startX = {100, 100, 900, 300}; //start x-coordinates
-    int[] startY = {100, 300, 100, 300}; //start y-coordinates
+    int[] startX = {100, 100, 1100, 1100}; //start x-coordinates
+    int[] startY = {100, 600, 100, 600}; //start y-coordinates
 
 
     List<Tank> tanks = new ArrayList<>(); //list of tanks filled in the Start function with the players from the lobby
@@ -46,13 +46,28 @@ public class Game extends Application {
     List<ClientReceiver> clientReceivers = new ArrayList<>();
 
     //map
-    private Map top = new Map(0, 0, 1200, wallWidth);
-    private Map bund = new Map(0, height - wallWidth, 1200, wallWidth);
-    private Map hoejre = new Map(width - wallWidth, 0, wallWidth, height);
-    private Map venstre = new Map(0, 0, wallWidth, height);
-    private Map map1 = new Map(200, 100, width / 2, wallWidth);
-    Map[] maps = {top, bund, venstre, hoejre, map1};
+    private Map map_top = new Map(0, 0, 1200, wallWidth);
+    private Map map_bot = new Map(0, height - wallWidth, 1200, wallWidth);
+    private Map map_right = new Map(width - wallWidth, 0, wallWidth, height);
+    private Map map_left = new Map(0, 0, wallWidth, height);
 
+
+
+    private Map wall01 = new Map(360, 160, wallWidth, 160);
+    private Map wall02 = new Map(160, 300,200, wallWidth);
+    private Map wall03 = new Map(160,300,wallWidth,220);
+    private Map wall04 = new Map(360,520,wallWidth,160);
+    private Map wall05 = new Map(360,520,240,wallWidth);
+    private Map wall06 = new Map(600,160,240,wallWidth);
+    private Map wall07 = new Map(820,20,wallWidth,160);
+
+
+    private Map wall08 = new Map(820,380,220,wallWidth);
+    private Map wall09 = new Map(820,380,wallWidth,160);
+    private Map wall10 = new Map(1020,160,wallWidth,240);
+
+
+    Map[] maps = {map_top, map_bot, map_left, map_right, wall01, wall02, wall03, wall04, wall05, wall06, wall07, wall08, wall09, wall10};
 
     //previous coordinates that are updated every time the coordinates changes
     int prevX = 0;
@@ -81,7 +96,8 @@ public class Game extends Application {
             @Override
             public void handle(long now) {
                 if (now - lastUpdate >= 20_000_000) { //sets the frame rate
-                    sendToServer();
+
+                    sendToServer(); //sends x, y and angle to server everytime they change
 
 
                     try {
