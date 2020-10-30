@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ClientReceiver extends Thread {
     private DataOutputStream output = LobbySender.getToServer();
     private DataInputStream input = LobbySender.getFromServer();
+
     Game game;
     Pane root;
 
