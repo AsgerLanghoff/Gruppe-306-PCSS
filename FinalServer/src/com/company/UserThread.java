@@ -1,6 +1,7 @@
 package com.company;
 
 //Imports
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.*;
@@ -38,57 +39,56 @@ public class UserThread extends Thread {
             System.out.println(playerID + " joined the server");
             database.addPlayer(playerID); //Adds the playerID to the database with playerIDs'
 
-            while(!gameState){
+            while (!gameState) {
                 String commandType = input.readUTF();
-                if(commandType.equals("sendSubLobby")){ //Creating a lobby on the server
+                if (commandType.equals("sendSubLobby")) { //Creating a lobby on the server
                     System.out.println(playerID + " creating lobby ");
                     recieveSubLobby();
                     System.out.println(playerID + " has created a lobby");
                 }
-                if(commandType.equals("quit")){
+                if (commandType.equals("quit")) {
                     server.sendToAll(playerID + " left the server ", this);
                     server.removeUser(this, playerID);
                     socket.close();
                 }
-                if(commandType.equals("requestLobbyList")){ //Requesting the lobby list
+                if (commandType.equals("requestLobbyList")) { //Requesting the lobby list
                     System.out.println("Sending lobby list to " + playerID);
                     sendSubLobby();
                 }
-                if(commandType.equals("updateLobby")){ //Update the lobby list on server side
+                if (commandType.equals("updateLobby")) { //Update the lobby list on server side
                     System.out.println("updating lobby ");
                     updateServerLobby();
 
                 }
-                if(commandType.equals("updatePlayers")){ //Update the lobby/player list on client side
+                if (commandType.equals("updatePlayers")) { //Update the lobby/player list on client side
                     System.out.println("updating playerlist");
                     updateClientLobby();
                 }
-                if(commandType.equals("playerReady")){ //Recognizes that a client has sent a "playerReady" string. Then it checks if a player is ready.
+                if (commandType.equals("playerReady")) { //Recognizes that a client has sent a "playerReady" string. Then it checks if a player is ready.
                     System.out.println(playerID + " is ready"); //If this happens then increase the number of ready players in the lobby list
                     String lobby = input.readUTF();
-                    for ( int i = 0; i< database.getLobbies().size(); i++){
-                        if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
+                    for (int i = 0; i < database.getLobbies().size(); i++) {
+                        if (database.getLobbies().get(i).getLobbyName().equals(lobby)) {
                             database.getLobbies().get(i).increaseReady();
                         }
                     }
                 }
-                if(commandType.equals("readyGame")){
+                if (commandType.equals("readyGame")) {
 
                     String lobby = input.readUTF();
 
-                    for ( int i = 0; i< database.getLobbies().size(); i++){ //Checks if the size of the ready lobby list on the server side has the same size as the getLobby list.
-                        if( database.getLobbies().get(i).getLobbyName().equals(lobby)){ //Then it sends a true boolean from the server to clients that will stop the lobby while loop,
-                            if(database.getLobbies().get(i).getReady()==database.getLobbies().get(i).getPlayers().size()){ //and then it starts the game while loop
+                    for (int i = 0; i < database.getLobbies().size(); i++) { //Checks if the size of the ready lobby list on the server side has the same size as the getLobby list.
+                        if (database.getLobbies().get(i).getLobbyName().equals(lobby)) { //Then it sends a true boolean from the server to clients that will stop the lobby while loop,
+                            if (database.getLobbies().get(i).getReady() == database.getLobbies().get(i).getPlayers().size()) { //and then it starts the game while loop
                                 output.writeBoolean(true);
-                            }
-                            else {
+                            } else {
                                 output.writeBoolean(false); //If the boolean remains false then the lobby keeps running until the boolean becomes true
                             }
                         }
                     }
 
                 }
-                if(commandType.equals("startGame")){ //Ends the lobby while loop and starts the game while loop on the server side
+                if (commandType.equals("startGame")) { //Ends the lobby while loop and starts the game while loop on the server side
                     gameState = true; //Boolean has become true
                 }
             }
@@ -96,18 +96,18 @@ public class UserThread extends Thread {
             //Prints update information about the game state when a tank moves, a bullet is generated and when a player is dead
             //This is done through the X-, Y- and A (angle of the direction that the tank points) coordinates of the tank
             //gameState is the game while loop. While this run, the game run
-            while(gameState){
+            while (gameState) {
                 String clientMessage = input.readUTF();
-            //Looks for either INFO, BULLET or DEAD in order to know what information that are going to arrive and processes that information
-                if(clientMessage.equals("INFO")){
+                //Looks for either INFO, BULLET or DEAD in order to know what information that are going to arrive and processes that information
+                if (clientMessage.equals("INFO")) {
                     int index = input.readInt(); //Reads the playerId from the clients
-                    System.out.println("Index: "+index);
+                    System.out.println("Index: " + index);
                     int x = input.readInt(); //Reads the X coordinate from the clients
-                    System.out.println("X: "+x);
+                    System.out.println("X: " + x);
                     int y = input.readInt(); //Reads the Y coordinate from the clients
-                    System.out.println("Y: "+y);
+                    System.out.println("Y: " + y);
                     int a = input.readInt(); //Reads the A coordinate from the clients
-                    System.out.println("A: "+a);
+                    System.out.println("A: " + a);
                     server.sendToAllInts(index, this); //Sends playerId
                     server.sendToAll("INFO", this); //Server get information from a client and sends that information to the others client
                     server.sendToAllInts(x, this); //Sends X position
@@ -115,12 +115,12 @@ public class UserThread extends Thread {
                     server.sendToAllInts(a, this); //Sends A position
 
                 }
-                if(clientMessage.equals("BULLET")){
+                if (clientMessage.equals("BULLET")) {
                     int index = input.readInt(); //Reads playerID from the client
                     server.sendToAllInts(index, this); //Sends the playerID of the client
                     server.sendToAll("BULLET", this); //Sends the message "BULLET" to all other clients
                 }
-                if (clientMessage.equals("DEAD")){
+                if (clientMessage.equals("DEAD")) {
                     int index = input.readInt(); //Reads playerId from the client
                     server.sendToAllInts(index, this); //Sends the playerID of the client
                     server.sendToAll("DEAD", this); //Sends the message "DEAD" to all other clients
@@ -142,15 +142,15 @@ public class UserThread extends Thread {
         database.addLobby(lobbyName, host, players); //The subLobby gets added to the Database
     }
 
-    public void updateClientLobby() throws IOException{
+    public void updateClientLobby() throws IOException {
         String uLobbyName = input.readUTF(); //Reads the updated lobby name from the client
         System.out.println(uLobbyName); //Prints the lobby name
-        for ( int i = 0; i< database.getLobbies().size(); i++){ //Checks the lobby size
-            if( database.getLobbies().get(i).getLobbyName().equals(uLobbyName)){ //Checks if the updated lobby size is equal to the original lobby size
+        for (int i = 0; i < database.getLobbies().size(); i++) { //Checks the lobby size
+            if (database.getLobbies().get(i).getLobbyName().equals(uLobbyName)) { //Checks if the updated lobby size is equal to the original lobby size
                 int len = database.getLobbies().get(i).getPlayers().size(); //Creates a new variable that contains the database and how many players that are in the lobby
                 System.out.println(len); //Length of the player list
                 output.writeInt(len); //Sends the length to all clients
-                for(int j = 0; j< len; j++){
+                for (int j = 0; j < len; j++) {
                     output.writeUTF(database.getLobbies().get(i).getPlayers().get(j)); //Sends the playerID to the clients
                     System.out.println(database.getLobbies().get(i).getPlayers().get(j)); //Print the requested output to the clients
                 }
@@ -162,8 +162,8 @@ public class UserThread extends Thread {
     public void updateServerLobby() throws IOException {
         String uLobbyName = input.readUTF(); //Reads the updated lobby name
         String uPlayerID = input.readUTF(); //Reads the updated playerID
-        for (int i = 0; i< database.getLobbies().size(); i++){
-            if( database.getLobbies().get(i).getLobbyName().equals(uLobbyName)){ //If the lobby name is equal to the updated lobby name
+        for (int i = 0; i < database.getLobbies().size(); i++) {
+            if (database.getLobbies().get(i).getLobbyName().equals(uLobbyName)) { //If the lobby name is equal to the updated lobby name
                 database.getLobbies().get(i).addPlayer(uPlayerID); //then assign the updated playerID's to the updated lobby
             }
         }
@@ -174,11 +174,11 @@ public class UserThread extends Thread {
         lobbies = database.getLobbies(); //Checks for lobbies in the database
         output.writeInt(lobbies.size()); //Sends the size of lobbies
         System.out.println("lobby size: " + lobbies.size()); //Prints the lobby size
-        for (int i = 0; i< lobbies.size(); i++){
+        for (int i = 0; i < lobbies.size(); i++) {
             output.writeUTF(lobbies.get(i).getLobbyName()); //Sends the lobby name
             output.writeUTF(lobbies.get(i).getHost()); //Sends the host name
             output.writeInt(lobbies.get(i).getPlayers().size()); //Sends the amount of players in the lobby
-            for (int j = 0; j< lobbies.get(i).getPlayers().size(); j++){
+            for (int j = 0; j < lobbies.get(i).getPlayers().size(); j++) {
                 output.writeUTF(lobbies.get(i).getPlayers().get(j)); //Sends the playerID's to the clients
             }
         }
@@ -188,25 +188,15 @@ public class UserThread extends Thread {
         try {
             output.writeUTF(message); //Sends a string
             output.flush(); //Flushes the stream
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void sendInt(int messageInt){
+    public void sendInt(int messageInt) {
         try {
             output.write(messageInt); //Sends a integer
             output.flush(); //Flushes the stream
-        } catch (Exception e) {
-            //TODO: handle exception
-            e.printStackTrace();
-        }
-    }
-    public void bSendInt(int messageInt){
-        try {
-            bOutput.write(messageInt); //Sends a integer
-            bOutput.flush(); //Flushes the stream
         } catch (Exception e) {
             //TODO: handle exception
             e.printStackTrace();
