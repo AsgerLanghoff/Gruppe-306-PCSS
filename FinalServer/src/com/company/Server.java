@@ -73,6 +73,14 @@ public class Server extends Thread {
         }
 
     }
+    public void bSendToAllInts(int messageint, UserThread ut){
+        for(UserThread userThread : users){
+            if(userThread != ut){
+                userThread.bSendInt(messageint);
+            }
+        }
+
+    }
 
     public ServerSocket getServerSocket() {
         return serverSocket;
