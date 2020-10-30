@@ -9,6 +9,7 @@ public class LobbySender {
     private static DataInputStream fromServer = null;
     private static BufferedOutputStream bufOutput = null;
     private static BufferedInputStream bufInput = null;
+    private static BufferedReader bufRead = null;
 
 
     int port = 8000;
@@ -32,7 +33,10 @@ public class LobbySender {
             toServer = new DataOutputStream(socket.getOutputStream());
             fromServer = new DataInputStream(socket.getInputStream());
             bufInput = new BufferedInputStream(socket.getInputStream());
-            bufOutput = new BufferedOutputStream(socket.getOutputStream());
+
+
+            bufRead = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             this.playerID = playerID;
         } catch (IOException e) {
             e.printStackTrace();
@@ -151,8 +155,8 @@ public class LobbySender {
         return bufInput;
     }
 
-    public static BufferedOutputStream getBufOutput(){
-        return bufOutput;
+    public static BufferedReader getBufRead(){
+        return bufRead;
     }
 
 
