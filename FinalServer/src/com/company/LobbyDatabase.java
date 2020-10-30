@@ -40,8 +40,6 @@ public class LobbyDatabase {
     public List<String> getPlayers() {
         return players;
     }
-
-
-
+    
 }
 
