@@ -43,6 +43,8 @@ public class Game extends Application {
 
     List<Tank> tanks = new ArrayList<>(); //list of tanks filled in the Start function with the players from the lobby
 
+    List<ClientReceiver> clientReceivers = new ArrayList<>();
+
     //map
     private Map top = new Map(0, 0, 1200, wallWidth);
     private Map bund = new Map(0, height - wallWidth, 1200, wallWidth);
@@ -80,7 +82,21 @@ public class Game extends Application {
             public void handle(long now) {
                 if (now - lastUpdate >= 20_000_000) { //sets the frame rate
                     sendToServer();
-                    receiveFromServer();
+
+
+                    try {
+                        int i = input.available(); //checks if there is any input from the server
+                        if (i != 0) { //if there is something - do something
+                            int serverIndex = input.readInt(); //gets the index of the player we are receiving from
+                            clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
+                        }
+                    } catch (IOException e) {
+                    }
+
+
+                    //receiveFromServer();
+
+
                     update();
                     lastUpdate = now;
                 }
@@ -254,6 +270,10 @@ public class Game extends Application {
             if (playerID.equals(Lobby.players.get(i))) {//check what playerID you got
                 playerIndex = i; //saves what playerID you got
             }
+        }
+
+        for (int i = 0; i < Lobby.players.size(); i++) {
+            clientReceivers.add(new ClientReceiver(root, this));
         }
 
         Scene scene = new Scene(createContent());
