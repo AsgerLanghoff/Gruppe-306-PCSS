@@ -14,8 +14,6 @@ import java.util.List;
 public class Game extends Application {
     DataInputStream input = LobbySender.getFromServer();
     DataOutputStream output = LobbySender.getToServer();
-    BufferedInputStream bufInput = LobbySender.getBufInput();
-    BufferedReader bufRead = LobbySender.getBufRead();
 
 
     //Projectile[] projectiles; skal slettes
@@ -106,8 +104,10 @@ public class Game extends Application {
                     try {
                         int i = input.available(); //checks if there is any input from the server
                         if (i != 0) { //if there is something - do something
-                            int serverIndex = bufRead.read(); //gets the index of the player we are receiving from
-                            clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
+                            int serverIndex = input.read(); //gets the index of the player we are receiving from
+                            if(serverIndex<=Lobby.players.size()) {
+                                clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
+                            }
                         }
                     } catch (IOException e) {
                     }

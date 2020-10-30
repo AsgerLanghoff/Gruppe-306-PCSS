@@ -7,9 +7,6 @@ import java.io.*;
 public class LobbySender {
     private static DataOutputStream toServer = null;
     private static DataInputStream fromServer = null;
-    private static BufferedOutputStream bufOutput = null;
-    private static BufferedInputStream bufInput = null;
-    private static BufferedReader bufRead = null;
 
 
     int port = 8000;
@@ -32,10 +29,7 @@ public class LobbySender {
             //System.out.println("Connection to server established ");
             toServer = new DataOutputStream(socket.getOutputStream());
             fromServer = new DataInputStream(socket.getInputStream());
-            bufInput = new BufferedInputStream(socket.getInputStream());
 
-
-            bufRead = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             this.playerID = playerID;
         } catch (IOException e) {
@@ -150,16 +144,6 @@ public class LobbySender {
     public static DataOutputStream getToServer() {
         return toServer;
     }
-
-    public static BufferedInputStream getBufInput(){
-        return bufInput;
-    }
-
-    public static BufferedReader getBufRead(){
-        return bufRead;
-    }
-
-
 }
 
 
