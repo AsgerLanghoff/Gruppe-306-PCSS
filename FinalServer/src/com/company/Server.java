@@ -71,6 +71,7 @@ public class Server extends Thread {
                 userThread.sendInt(messageint);
             }
         }
+
     }
 
     public ServerSocket getServerSocket() {

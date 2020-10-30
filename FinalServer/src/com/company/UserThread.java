@@ -1,5 +1,6 @@
 package com.company;
 
+//Imports
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,14 +10,16 @@ import java.util.List;
 
 public class UserThread extends Thread {
 
+    //Variables
     private Server server;
-    private Socket socket;
-    private String playerID;
+    private Socket socket; //A socket is one endpoint of a two-way communication link between two programs running on the network
+    private String playerID; //Gives each person joining a list an index number that corresponds to their position in the list
     boolean gameState = false;
-    private DataOutputStream output;
-    private DataInputStream input;
+    private DataOutputStream output; //DataOutputStream writes primitive Java data types to an output stream in a portable way
+    private DataInputStream input; //DataInputStream reads primitive Java data types from an underlying input stream in a machine-independent way
     public static Database database = new Database();
 
+    //UserThread constructor - assigns the server and socket to the variables
     public UserThread(Server server, Socket socket) {
         this.server = server;
         this.socket = socket;
@@ -26,46 +29,45 @@ public class UserThread extends Thread {
     @Override
     public void run() {
         try {
-            input = new DataInputStream(socket.getInputStream());
-            output = new DataOutputStream(socket.getOutputStream());
-            playerID = input.readUTF();
+            input = new DataInputStream(socket.getInputStream()); //Returns an input stream for the given socket. If you close the returned InputStream, then close the linked socket
+            output = new DataOutputStream(socket.getOutputStream()); //Returns an output stream for the given socket. If the close the returned OutputStream, then close the linked socket
+            playerID = input.readUTF(); //The string of character is decoded from the UTF and returned as String.
             System.out.println(playerID + " joined the server");
             database.addPlayer(playerID);
 
             while(!gameState){
                 String commandType = input.readUTF();
-                if(commandType.equals("sendSubLobby")){  // creating a lobby on the server
-                    System.out.println(playerID + "creating lobby ");
+                if(commandType.equals("sendSubLobby")){ //Creating a lobby on the server
+                    System.out.println(playerID + " creating lobby ");
                     recieveSubLobby();
-                    System.out.println(playerID + "'s lobby created");
+                    System.out.println(playerID + " has created a lobby");
                 }
                 if(commandType.equals("quit")){
                     server.sendToAll(playerID + " left the server ", this);
                     server.removeUser(this, playerID);
                     socket.close();
                 }
-                if(commandType.equals("requestLobbyList")){ //requesting the lobbylist
+                if(commandType.equals("requestLobbyList")){ //Requesting the lobbylist
                     System.out.println("Sending lobby list to " + playerID);
                     sendSubLobby();
                 }
-                if(commandType.equals("updateLobby")){ // update the lobbylist on serverside
+                if(commandType.equals("updateLobby")){ //Update the lobbylist on serverside
                     System.out.println("updating lobby ");
                     updateServerLobby();
 
                 }
-                if(commandType.equals("updatePlayers")){ // update the lobby/playerlist on clientside
+                if(commandType.equals("updatePlayers")){ //Update the lobby/playerlist on clientside
                     System.out.println("updating playerlist");
                     updateClientLobby();
                 }
-                if(commandType.equals("playerReady")){
-                    System.out.println(playerID + " is ready");
+                if(commandType.equals("playerReady")){ //If a player is ready, then the lobby recognizes that an additional index number (playerID)
+                    System.out.println(playerID + " is ready");                                         //has been assigned to the particular lobby
                     String lobby = input.readUTF();
                     for ( int i = 0; i< database.getLobbies().size(); i++){
                         if( database.getLobbies().get(i).getLobbyName().equals(lobby)){
                             database.getLobbies().get(i).increaseReady();
                         }
                     }
-
                 }
                 if(commandType.equals("readyGame")){
                     String lobby = input.readUTF();
@@ -85,11 +87,10 @@ public class UserThread extends Thread {
                 if(commandType.equals("startGame")){
                     gameState = true;
                 }
-
-
-
             }
 
+            //Print update information about the game state when a tank moves, a bullet is generated and when a player is dead
+            //This is done through the X-, Y- and A (angle of the direction that the tank points) coordinates of the tank
             while(gameState){
                 String clientMessage = input.readUTF();
 
@@ -107,17 +108,26 @@ public class UserThread extends Thread {
                     server.sendToAllInts(x, this);
                     server.sendToAllInts(y, this);
                     server.sendToAllInts(a, this);
+
                 }
                 if(clientMessage.equals("BULLET")){
-                    int playerID = input.readInt();
+                    int index = input.readInt();
                     server.sendToAll("BULLET", this);
-                    server.sendToAllInts(playerID, this);
+                    server.sendToAllInts(index, this);
                 }
+                if (clientMessage.equals("DEAD")){
+                    int index = input.readInt();
+                    server.sendToAll("DEAD", this);
+                    server.sendToAllInts(index, this);
+
+                }
+                System.out.println(clientMessage);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void recieveSubLobby() throws IOException {
         String lobbyName = input.readUTF();
         String host = input.readUTF();
@@ -153,7 +163,6 @@ public class UserThread extends Thread {
         }
     }
 
-
     public void updateServerLobby() throws IOException {
         String uLobbyName = input.readUTF();
         String uPlayerID = input.readUTF();
@@ -162,7 +171,6 @@ public class UserThread extends Thread {
                 database.getLobbies().get(i).addPlayer(uPlayerID);
             }
         }
-
     }
 
     public void sendSubLobby() throws IOException {
@@ -180,7 +188,6 @@ public class UserThread extends Thread {
         }
     }
 
-
     public void sendMessage(String message) {
         try {
             output.writeUTF(message);
@@ -190,6 +197,7 @@ public class UserThread extends Thread {
             e.printStackTrace();
         }
     }
+
     public void sendInt(int messageInt){
         try {
             output.writeInt(messageInt);
