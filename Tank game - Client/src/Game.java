@@ -16,9 +16,6 @@ public class Game extends Application {
     DataOutputStream output = LobbySender.getToServer();
 
 
-    //Projectile[] projectiles; skal slettes
-
-
     //movement booleans
     boolean left = false;
     boolean right = false;
@@ -148,44 +145,6 @@ public class Game extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public void receiveFromServer() { //receives all the information from the server
-        try {
-            int i = input.available(); //checks if there is any input from the server
-            if (i == 0) { //if there is nothing do nothing
-            } else { //if there is something - do something
-                String sendMessage = input.readUTF(); //saves a string from the server as sendMessage - it is either INFO or BULLET
-                int serverIndex = input.readInt(); //gets the index of the player we are receiving from
-                if (sendMessage.equals("INFO")) {
-                    int x = input.readInt();
-                    tanks.get(serverIndex).setTranslateX(x);
-                    //System.out.println("X: " + x);
-                    int y = input.readInt();
-                    tanks.get(serverIndex).setTranslateY(y);
-                    //System.out.println("Y: " + y);
-                    int a = input.readInt();
-                    tanks.get(serverIndex).setToAngle(a);
-                    //System.out.println("A: " + a);
-                }
-
-                if (sendMessage.equals("BULLET")) {
-                    spawnProjectile(tanks.get(serverIndex));
-                    System.out.println("BUELLELETETETET§!!!!!!!");
-                }
-
-                if (sendMessage.equals("DEAD")) {
-                    System.out.println("serverdead");
-                    if (tanks.get(serverIndex).getDead() == false) {
-                        root.getChildren().remove(tanks.get(serverIndex));
-                    }
-                    tanks.get(serverIndex).setDead();
-                    //tanks.get(serverIndex).setDead();
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

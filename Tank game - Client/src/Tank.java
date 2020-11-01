@@ -4,11 +4,10 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
 public class Tank extends Rectangle {
-    boolean dead = false; //is not used for anything YET
+    boolean dead = false;
     private int angle = 0; //variable that stores the tanks angle
     private int angleIncrease = 3;
     private int moveSpeed = 6;
-    private int wallCollider = 50;
     final static int MAX_PROJECTILES = 10; //max amount of projectiles a player can have at the same time
     private Projectile[] projectiles = new Projectile[MAX_PROJECTILES]; //array with the tanks projectiles
     final String playerID; //either bullet or player-- IS NOT UTILISED YET
@@ -61,7 +60,6 @@ public class Tank extends Rectangle {
             }
         }
             return null;
-
     }
 
 
@@ -96,25 +94,11 @@ public class Tank extends Rectangle {
         setTranslateY(getTranslateY() - moveSpeed * Math.sin(angleR));
     }
 
-   /* public boolean isColliding(Map[] maps){ //method that returns true if colliding with a wall
-        for (int i = 0; i < maps.length; i++) {
-            if (this.getBoundsInParent().intersects(maps[i].getBoundsInParent())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    */
-
-    //tank class method
     public boolean isColliding(Map[] maps){ //method that returns true if colliding with a wall
         for (int i = 0; i < maps.length; i++) {
             Shape intersect = Shape.intersect(maps[i],this);
 
             if(intersect.getBoundsInParent().getWidth()>0) {
-                //System.out.println("is colliding");
-                //if (this.getBoundsInParent().intersects(maps[i].getBoundsInParent())) {
                 return true;
             }
         }

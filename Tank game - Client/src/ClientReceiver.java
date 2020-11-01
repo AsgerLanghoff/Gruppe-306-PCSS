@@ -36,7 +36,6 @@ public class ClientReceiver extends Thread {
 
         if (sendMessage.equals("BULLET")) {
             game.spawnProjectile(tanks.get(serverIndex));
-            System.out.println("BUELLELETETETET§!!!!!!!");
         }
 
         if (sendMessage.equals("DEAD")) {

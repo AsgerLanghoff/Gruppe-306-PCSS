@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Lobby{
 
-    //    private List<String>activeGameName = new ArrayList<String>();
     private List<SubLobby> subLobbies = new ArrayList<SubLobby>();
     public static List<String> players = new ArrayList<>();
 
@@ -223,7 +222,7 @@ public class Lobby{
 
                 joinLobby(lobbyName); //Try Catch her måske, kommer and på hvad funktionen skal
             } else {
-                System.out.println("please enter a valid option");
+                System.out.println("Please enter a valid option");
                 options();
             }
         } catch (Exception e) {

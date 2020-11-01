@@ -11,8 +11,7 @@ public class LobbySender {
 
     int port = 8000;
     // ipv4 address for server
-    String host = "192.168.43.236";
-    boolean Continue = true;
+    String host;
     Socket socket = null;
     String playerID;
     Scanner scanner = new Scanner(System.in);
@@ -29,8 +28,6 @@ public class LobbySender {
             //System.out.println("Connection to server established ");
             toServer = new DataOutputStream(socket.getOutputStream());
             fromServer = new DataInputStream(socket.getInputStream());
-
-
             this.playerID = playerID;
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,10 +51,6 @@ public class LobbySender {
         toServer.writeUTF(playerID);
     }
 
-    public void recieveGameInfo(){
-
-
-    }
 
     public void startGame() throws IOException {
         toServer.writeUTF("startGame");
@@ -126,12 +119,12 @@ public class LobbySender {
                 players.add(fromServer.readUTF());
             }
 
-            System.out.println("Recieved sublobby: "+lobbyName);
+            System.out.println("Received sublobby: "+lobbyName);
             SubLobby newLobby = new SubLobby(lobbyName, host);
             newLobby.setPlayers(players);
             subLobbies.add(newLobby);
         }
-        System.out.println("recieving done!");
+        System.out.println("Receiving done!");
         return subLobbies;
     }
 

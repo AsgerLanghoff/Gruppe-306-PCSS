@@ -8,8 +8,6 @@ public class Projectile extends Circle {
     final static int MAX_SPEED = 2;
     static final int RADIUS = 5;
 
-    private Tank player;
-
     private double xSpeed;
     private double ySpeed;
     public boolean dead = false;
@@ -49,7 +47,6 @@ public class Projectile extends Circle {
     Tank collision(List<Tank> tank){ //method that returns a tank that has been hit
         for (int i = 0; i < tank.size(); i++) {
             if (this.getBoundsInParent().intersects(tank.get(i).getBoundsInParent())) {
-                //lifespan = 300;
                 return tank.get(i);
             }
         }
