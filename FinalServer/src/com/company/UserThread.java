@@ -19,7 +19,6 @@ public class UserThread extends Thread {
     boolean gameState = false;
     private DataOutputStream output; //DataOutputStream writes primitive Java data types to an output stream in a portable way
     private DataInputStream input; //DataInputStream reads primitive Java data types from an underlying input stream in a machine-independent way
-    private BufferedOutputStream bOutput;
     public static Database database = new Database();
 
     //UserThread constructor - assigns the server and socket to the variables
@@ -34,7 +33,6 @@ public class UserThread extends Thread {
         try {
             input = new DataInputStream(socket.getInputStream()); //Returns an input stream for the given socket. If you close the returned InputStream, then close the linked socket
             output = new DataOutputStream(socket.getOutputStream()); //Returns an output stream for the given socket. If the close the returned OutputStream, then close the linked socket
-            bOutput = new BufferedOutputStream(socket.getOutputStream());
             playerID = input.readUTF(); //readUTF decodes characters to a String
             System.out.println(playerID + " joined the server");
             database.addPlayer(playerID); //Adds the playerID to the database with playerIDs'
