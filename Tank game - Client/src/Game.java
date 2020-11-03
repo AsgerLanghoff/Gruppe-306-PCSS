@@ -102,9 +102,7 @@ public class Game extends Application {
                         int i = input.available(); //checks if there is any input from the server
                         if (i != 0) { //if there is something - do something
                             int serverIndex = input.read(); //gets the index of the player we are receiving from
-                            if(serverIndex<=Lobby.players.size()) {
                                 clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
-                            }
                         }
                     } catch (IOException e) {
                     }
