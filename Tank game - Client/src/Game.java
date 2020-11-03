@@ -91,22 +91,26 @@ public class Game extends Application {
 
 
         AnimationTimer timer = new AnimationTimer() { //everything in this is called each frame
+
+
             @Override
             public void handle(long now) {
+
                 if (now - lastUpdate >= 20_000_000) { //sets the frame rate
-
                     sendToServer(); //sends x, y and angle to server everytime they change
-
 
                     try {
                         int i = input.available(); //checks if there is any input from the server
+                        System.out.println(i+"input available");
                         if (i != 0) { //if there is something - do something
-                            int serverIndex = input.read(); //gets the index of the player we are receiving from
-                            if(serverIndex<=Lobby.players.size()) {
-                                clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
-                            }
+                            int serverIndex = input.readInt(); //gets the index of the player we are receiving from
+                            //if(serverIndex<=Lobby.players.size()) {
+                            System.out.println(serverIndex+"index");
+                            clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
+                           // }
                         }
                     } catch (IOException e) {
+                        e.printStackTrace();
                     }
 
                     update();
@@ -245,16 +249,13 @@ public class Game extends Application {
                 playerIndex = i; //saves what playerID you got
             }
         }
-        System.out.println("1");
 
         for (int i = 0; i < Lobby.players.size(); i++) {
             clientReceivers.add(new ClientReceiver(root, this));
         }
-        System.out.println("2");
         Scene scene = new Scene(createContent());
 
         //sets booleans to false if key is released
-        System.out.println("3");
         scene.setOnKeyReleased(e -> {
             switch (e.getCode()) {
                 case LEFT:
@@ -271,7 +272,6 @@ public class Game extends Application {
                     break;
             }
         });
-
         //sets booleans to true if key is pressed
         scene.setOnKeyPressed(e -> {
             switch (e.getCode()) {
