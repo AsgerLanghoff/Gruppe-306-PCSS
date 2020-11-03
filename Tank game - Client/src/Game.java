@@ -95,23 +95,24 @@ public class Game extends Application {
 
             @Override
             public void handle(long now) {
+                sendToServer(); //sends x, y and angle to server everytime they change
+
+                try {
+                    int i = input.available(); //checks if there is any input from the server
+                    System.out.println(i+"input available");
+                    if (i != 0) { //if there is something - do something
+                        int serverIndex = input.readInt(); //gets the index of the player we are receiving from
+                        //if(serverIndex<=Lobby.players.size()) {
+                        System.out.println(serverIndex+"index");
+                        clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
+                        // }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 if (now - lastUpdate >= 20_000_000) { //sets the frame rate
-                    sendToServer(); //sends x, y and angle to server everytime they change
 
-                    try {
-                        int i = input.available(); //checks if there is any input from the server
-                        System.out.println(i+"input available");
-                        if (i != 0) { //if there is something - do something
-                            int serverIndex = input.readInt(); //gets the index of the player we are receiving from
-                            //if(serverIndex<=Lobby.players.size()) {
-                            System.out.println(serverIndex+"index");
-                            clientReceivers.get(serverIndex).clientUpdate(serverIndex, tanks, root);
-                           // }
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
                     update();
                     lastUpdate = now;
