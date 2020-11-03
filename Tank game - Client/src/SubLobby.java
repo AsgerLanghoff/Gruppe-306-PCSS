@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubLobby {
+public class SubLobby { // the local subLobby class containing the lobbyName and the playerlist.
     private String lobbyName;
     private List<String> players = new ArrayList<String>();
     private String host;
