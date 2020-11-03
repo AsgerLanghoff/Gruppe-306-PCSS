@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="commit">
+    <list default="true" id="b9cf2bcd-ab61-4c9a-ab3e-b977114b7512" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Gruppe-306-PCSS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gruppe-306-PCSS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tank game - Client/src/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalServer/FinalServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalServer/.idea/FinalServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/TODO list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/Tank game - Client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank game - Client/out/production/Gruppe-306-PCSS/update" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,24 +47,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FinalServer" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
-  <component name="RunManager" selected="Application.Lobby">
-    <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ClientTest" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\45227\Documents\GitHub\Gruppe-306-PCSS\FinalServer\.idea" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Server" />
       <module name="Gruppe-306-PCSS" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Lobby" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Lobby" />
-      <module name="Gruppe-306-PCSS" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\atlen\Downloads\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,19 +96,15 @@
     <list>
       <item itemvalue="Application.test5" />
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Lobby" />
-      <item itemvalue="Application.ClientTest" />
+      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Lobby" />
-        <item itemvalue="Application.ClientTest" />
-        <item itemvalue="Application.Lobby" />
-        <item itemvalue="Application.Lobby" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -126,6 +126,11 @@
       <workItem from="1603442048498" duration="2061000" />
       <workItem from="1603706449728" duration="174000" />
       <workItem from="1603706837050" duration="4546000" />
+      <workItem from="1603802757074" duration="1854000" />
+      <workItem from="1603973640644" duration="87000" />
+      <workItem from="1603973740904" duration="22000" />
+      <workItem from="1603974206929" duration="131000" />
+      <workItem from="1603974349320" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1603800135439</created>
@@ -145,46 +150,41 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="249" y="0" key="#Project_Structure" timestamp="1603706469784">
+    <state x="426" y="7" key="#Project_Structure" timestamp="1603803342565">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1603706469784" />
-    <state x="223" y="63" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603800286158">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="426" y="7" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1603803342565" />
+    <state x="223" y="69" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603974313592">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="223" y="63" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603800286158" />
+    <state x="223" y="68" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603803979543" />
+    <state x="223" y="69" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1603974313592" />
     <state x="539" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602503533698">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="539" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1602503533698" />
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603706619415">
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603974269587">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1603803263116" />
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.834@0.0.1536.834" timestamp="1603974269587" />
+    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1603803557667">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1603706619415" />
-    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602502863500">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1603803557667" />
+    <state x="432" y="133" key="FileChooserDialogImpl" timestamp="1603974396011">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1602502863500" />
-    <state x="353" y="0" key="CommitChangelistDialog2" timestamp="1603805423104">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="353" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603805423104" />
-    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1602503809569">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602503809569" />
-    <state width="1493" height="254" key="GridCell.Tab.0.bottom" timestamp="1603804901434">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
-    <state width="1493" height="254" key="GridCell.Tab.0.center" timestamp="1603804901434">
+    <state x="432" y="131" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603803340097" />
+    <state x="432" y="133" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1603974396011" />
+    <state width="1493" height="103" key="GridCell.Tab.0.bottom" timestamp="1603715120920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="254" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603804901434" />
@@ -199,30 +199,69 @@
     <state x="147" y="65" key="MergeDialog" timestamp="1603805353807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1603805353807" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1603706590692">
+    <state width="1493" height="103" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603715120920" />
+    <state x="393" y="0" key="SettingsEditor" timestamp="1603974371220">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603803212179" />
+    <state x="393" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1603974371220" />
+    <state x="209" y="68" key="new project wizard" timestamp="1603805626976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603706590692" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603803806704">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603803806704" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603802179269">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603802179269" />
-    <state x="519" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603805344779">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="519" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1603805344779" />
-    <state x="209" y="73" key="new project wizard" timestamp="1603268217753">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603268217753" />
+    <state x="209" y="68" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603805626976" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603104575171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603104575171" />
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>

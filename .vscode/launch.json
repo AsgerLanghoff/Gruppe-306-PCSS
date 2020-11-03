@@ -8,6 +8,20 @@
             "type": "java",
             "name": "CodeLens (Launch) - Server",
             "request": "launch",
+            "mainClass": "com.company.Server",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Server",
+            "request": "launch",
+            "mainClass": "Server",
+            "projectName": "Gruppe-306-PCSS_7455d736"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Server",
+            "request": "launch",
             "mainClass": "src.com.company.src.com.company.Server",
             "projectName": "Gruppe-306-PCSS_7455d736"
         },
