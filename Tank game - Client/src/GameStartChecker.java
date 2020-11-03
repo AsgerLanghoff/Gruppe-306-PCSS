@@ -8,35 +8,23 @@ public class GameStartChecker extends Thread{
     private DataInputStream fromServer ;
 
     @Override
-    public void run() {
+    public void run() {// listening for the server to send a message to change from lobby to game state.
         super.run();
         while(true) {
             try {
                 toServer = LobbySender.getToServer();
                 fromServer = LobbySender.getFromServer();
-
                 boolean runGame = false;
+
                 while (runGame != true ) {
-                    if(gameStart() == true){
-
-
-
-
-
+                    if(gameStart() == true){ // if the gamestart from the server is recieved as true, runGame is initiated.
                         runGame =true;
                     }
-
                 }
-
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
-
     }
 
     @Override
@@ -44,7 +32,7 @@ public class GameStartChecker extends Thread{
         super.start();
     }
 
-    public boolean gameStart() throws IOException {
+    public boolean gameStart() throws IOException { // getting the gameStart boolean from server
          boolean b = fromServer.readBoolean();
             if (b){
              return true;
