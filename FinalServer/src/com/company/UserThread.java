@@ -152,7 +152,7 @@ public class UserThread extends Thread {
                     output.writeUTF(database.getLobbies().get(i).getPlayers().get(j)); //Sends the playerID to the clients
                     System.out.println(database.getLobbies().get(i).getPlayers().get(j)); //Print the requested output to the clients
                 }
-
+                break;
             }
         }
     }
@@ -193,7 +193,7 @@ public class UserThread extends Thread {
 
     public void sendInt(int messageInt) {
         try {
-            output.write(messageInt); //Sends a integer
+            output.writeInt(messageInt); //Sends a integer
             output.flush(); //Flushes the stream
         } catch (Exception e) {
             //TODO: handle exception
