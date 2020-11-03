@@ -150,9 +150,9 @@ public class Game extends Application {
             //moves ALL bullets on the map
             for (int i = 0; i < tanks.get(t).getProjectiles().length; i++) {
                 if (tanks.get(t).getProjectiles()[i] != null) { //only does this function if there are bullets in the array
-                    for (int j = 0; j < maps.length; j++) {
-                        tanks.get(t).getProjectiles()[i].moveBullet(maps[j]);//moves bullets
-                    }
+                    //for (int j = 0; j < maps.length; j++) {
+                        tanks.get(t).getProjectiles()[i].moveBullet(maps);//moves bullets
+                    //}
 
                     //removes a tank if hit
                     if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) { //runs if a tank is hit
@@ -245,14 +245,16 @@ public class Game extends Application {
                 playerIndex = i; //saves what playerID you got
             }
         }
+        System.out.println("1");
 
         for (int i = 0; i < Lobby.players.size(); i++) {
             clientReceivers.add(new ClientReceiver(root, this));
         }
-
+        System.out.println("2");
         Scene scene = new Scene(createContent());
 
         //sets booleans to false if key is released
+        System.out.println("3");
         scene.setOnKeyReleased(e -> {
             switch (e.getCode()) {
                 case LEFT:

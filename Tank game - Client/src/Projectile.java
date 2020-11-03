@@ -29,15 +29,16 @@ public class Projectile extends Circle {
         this.ySpeed = MAX_SPEED * Math.sin(angleR);
     }
 
-    void moveBullet(Map map) {
+    void moveBullet(Map[] map) {
         this.setCenterX(getCenterX() + xSpeed); //shoots with angle from setSpeed.
         this.setCenterY(getCenterY() + ySpeed);
 
-
-        if (this.getCenterX() > map.getTranslateX() && this.getCenterX() < map.getTranslateX() + map.getWidth() && (this.getCenterY() < map.getTranslateY() || this.getCenterY() < map.getTranslateY() + map.getHeight()+RADIUS) && this.getBoundsInParent().intersects(map.getBoundsInParent())) {
-            ySpeed = -ySpeed; //inverting speed if top or bottom of wall is hit
-        } else if (this.getBoundsInParent().intersects(map.getBoundsInParent())) {
-            xSpeed = -xSpeed; //Inverting speed if side of wall is hit
+        for(int i = 0; i < map.length; i++) {
+            if (this.getCenterX() > map[i].getTranslateX() && this.getCenterX() < map[i].getTranslateX() + map[i].getWidth() && (this.getCenterY() < map[i].getTranslateY() || this.getCenterY() < map[i].getTranslateY() + map[i].getHeight() + RADIUS) && this.getBoundsInParent().intersects(map[i].getBoundsInParent())) {
+                ySpeed = -ySpeed; //inverting speed if top or bottom of wall is hit
+            } else if (this.getBoundsInParent().intersects(map[i].getBoundsInParent())) {
+                xSpeed = -xSpeed; //Inverting speed if side of wall is hit
+            }
         }
         lifespan++; //incrementing lifespan each frame
     }
