@@ -12,8 +12,8 @@ import java.util.List;
 
 
 public class Game extends Application {
-    DataInputStream input = LobbySender.getFromServer();
-    DataOutputStream output = LobbySender.getToServer();
+    DataInputStream input = LobbySender.getFromServer(); // initializes the input stream
+    DataOutputStream output = LobbySender.getToServer(); // initializes the output stream
 
 
     //movement booleans
@@ -43,7 +43,7 @@ public class Game extends Application {
 
     List<ClientReceiver> clientReceivers = new ArrayList<>();
 
-    //map
+    //defining the map layout
     private Map map_top = new Map(0, 0, 1200, wallWidth);
     private Map map_bot = new Map(0, height - wallWidth, 1200, wallWidth);
     private Map map_right = new Map(width - wallWidth, 0, wallWidth, height);
@@ -64,7 +64,7 @@ public class Game extends Application {
     private Map wall09 = new Map(820,380,wallWidth,160);
     private Map wall10 = new Map(1020,160,wallWidth,240);
 
-
+    // instantiating the map array
     Map[] maps = {map_top, map_bot, map_left, map_right, wall01, wall02, wall03, wall04, wall05, wall06, wall07, wall08, wall09, wall10};
 
     //previous coordinates that are updated every time the coordinates changes
@@ -108,10 +108,6 @@ public class Game extends Application {
                         }
                     } catch (IOException e) {
                     }
-
-
-                    //receiveFromServer();
-
 
                     update();
                     lastUpdate = now;
@@ -159,9 +155,9 @@ public class Game extends Application {
                     }
 
                     //removes a tank if hit
-                    if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) {//only does this if there is a hit tank
+                    if (tanks.get(t).getProjectiles()[i].collision(tanks) != null) { //runs if a tank is hit
                         Tank tank = tanks.get(t).getProjectiles()[i].collision(tanks);
-                        if (tank == tanks.get(playerIndex)) {
+                        if (tank == tanks.get(playerIndex)) {// removes the specific tank hit and sends that message to server if the tank is beloning to this client.
                             if (tank.getDead() == false) {
                                 root.getChildren().remove(tank);
                                 try {
@@ -191,27 +187,27 @@ public class Game extends Application {
 
         //moves if the boolean is true, this is smoother than having the move in the start function
         if (left) {
-            tanks.get(playerIndex).rotateLeft();
+            tanks.get(playerIndex).rotateLeft(); // rotating left
             if (tanks.get(playerIndex).isColliding(maps)) {
                 tanks.get(playerIndex).rotateRight();
 
             }
         }
         if (right) {
-            tanks.get(playerIndex).rotateRight();
+            tanks.get(playerIndex).rotateRight(); //rotating right
             if (tanks.get(playerIndex).isColliding(maps)) {
                 tanks.get(playerIndex).rotateLeft();
             }
         }
         if (forward) {
-            tanks.get(playerIndex).moveForward();
+            tanks.get(playerIndex).moveForward(); //moving forward
             if (tanks.get(playerIndex).isColliding(maps)) {
                 tanks.get(playerIndex).moveBackward();
 
             }
         }
         if (backward) {
-            tanks.get(playerIndex).moveBackward();
+            tanks.get(playerIndex).moveBackward(); //moving backwards
             if (tanks.get(playerIndex).isColliding(maps)) {
                 tanks.get(playerIndex).moveForward();
 
@@ -220,7 +216,7 @@ public class Game extends Application {
     }
 
 
-    public void spawnProjectile(Tank tank) {
+    public void spawnProjectile(Tank tank) { // spawning a projectile and telling all other clients to do the same from this client's tank
         Projectile p = tank.shoot();
         if (p != null) {
             root.getChildren().add(p);

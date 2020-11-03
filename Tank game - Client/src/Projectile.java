@@ -16,12 +16,11 @@ public class Projectile extends Circle {
     int lifespan;
 
     Projectile(float x, float y, Tank tank) {
-        super(x, y, RADIUS); //bruger constructor fra Rectangle som er superclass
+        super(x, y, RADIUS); //uses constructor from the rectangle superclass
         setFill(Color.HOTPINK);
-        this.angle = tank.getAngle(); //henter den vinkel tanken har
-        this.angleR = Math.toRadians(angle); //laver vinklen til radianer
-        //this.player = tank; //gemmer hvilken tank der har affyret
-        setSpeed(); //kalder metoden set speed og gemmer en x og y speed
+        this.angle = tank.getAngle(); //gets the angle of the tank
+        this.angleR = Math.toRadians(angle); //converts the angle to radians
+        setSpeed(); //calls the method setSpeed and saves a x and y speed
     }
 
     void setSpeed() {
@@ -31,16 +30,16 @@ public class Projectile extends Circle {
     }
 
     void moveBullet(Map map) {
-        this.setCenterX(getCenterX() + xSpeed); //affyrer skud med dens vinkel fra setSpeed
+        this.setCenterX(getCenterX() + xSpeed); //shoots with angle from setSpeed.
         this.setCenterY(getCenterY() + ySpeed);
 
 
         if (this.getCenterX() > map.getTranslateX() && this.getCenterX() < map.getTranslateX() + map.getWidth() && (this.getCenterY() < map.getTranslateY() || this.getCenterY() < map.getTranslateY() + map.getHeight()+RADIUS) && this.getBoundsInParent().intersects(map.getBoundsInParent())) {
-            ySpeed = -ySpeed; //inverter hastigheden hvis en top eller bund væg rammes
+            ySpeed = -ySpeed; //inverting speed if top or bottom of wall is hit
         } else if (this.getBoundsInParent().intersects(map.getBoundsInParent())) {
-            xSpeed = -xSpeed; //inverter speed hvis sidevæg rammes
+            xSpeed = -xSpeed; //Inverting speed if side of wall is hit
         }
-        lifespan++; //incrementer lifespan hver frame
+        lifespan++; //incrementing lifespan each frame
     }
 
 

@@ -1,10 +1,7 @@
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Map extends Rectangle {
-    //final static Color color = Color.GRAY;
-    //final static int width = 1200;
-    //final static int height = 5;
+public class Map extends Rectangle { // defining the map class. the map extends rectangle as the map is build of a series of rectangles each with a placement, width and height.
 
 
 
