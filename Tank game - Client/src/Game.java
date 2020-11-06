@@ -64,7 +64,7 @@ public class Game extends Application {
     private Map wall09 = new Map(820,380,wallWidth,160);
     private Map wall10 = new Map(1020,160,wallWidth,240);
 
-    // instantiating the map array
+    // initializing the map array
     Map[] maps = {map_top, map_bot, map_left, map_right, wall01, wall02, wall03, wall04, wall05, wall06, wall07, wall08, wall09, wall10};
 
     //previous coordinates that are updated every time the coordinates changes
